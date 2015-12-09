@@ -1,0 +1,24 @@
+{
+  "name": "koa-generator-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "1": "./node_modules/.bin/nodemon get/bin/www",
+    "2": "./node_modules/.bin/nodemon params/bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/base-n/koa-generator-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/base-n/koa-generator-examples/issues"
+  },
+  "homepage": "https://github.com/base-n/koa-generator-examples#readme",
+  "devDependencies": {
+    "nodemon": "^1.8.1"
+  }
+}
