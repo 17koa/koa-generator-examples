@@ -28,6 +28,7 @@
   * [上下文](#---)
 - [koa-generator](#koa-generator)
   * [创建项目](#----)
+  * [切换视图](#----)
 - [HTTP](#http)
   * [Get](#get)
     + [如何获取query参数](#----query--)
