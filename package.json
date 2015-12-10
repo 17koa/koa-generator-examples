@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "1": "./node_modules/.bin/nodemon get/bin/www",
-    "2": "./node_modules/.bin/nodemon params/bin/www",
+    "1": "./node_modules/.bin/nodemon 1.x/get/bin/www",
+    "2": "./node_modules/.bin/nodemon 1.x/params/bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
