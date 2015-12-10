@@ -1,5 +1,8 @@
 # koa-generator-examples
 
+
+# koa基础
+
 http://koa.bootcss.com/
 
 ## 上下文
@@ -34,6 +37,22 @@ express里的req和res是显示声明，看起来更清晰一些
 
 next处理是一样的，二者无差异
 
+
+# koa-generator
+
+##安装koa-generator
+
+```
+npm install -g koa-generator
+```
+
+## 创建项目
+
+```
+koa helloworld
+```
+
+# HTTP
 ## Get
 
 ```
@@ -218,3 +237,11 @@ https://github.com/alexmingoia/koa-router/blob/5.x/lib/router.js#L317
 ## 上传
 
 
+
+# 流程控制
+
+## co
+
+## async/await
+
+## promise with bluebird
