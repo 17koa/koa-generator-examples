@@ -45,3 +45,8 @@
   * [Mocha](#mocha)
   * [supertest](#supertest)
 - [DEPLOY](#deploy)
+
+## 预览
+
+- [一起学koa之1.x版本预览](1.x.md)
+- [一起学koa之2.x版本预览](2.x.md)
