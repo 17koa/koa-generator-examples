@@ -54,7 +54,9 @@
   * MySQL
   * Mongo
 - 流程控制
-  * co
+  * generator/co
+    + es6的generator是什么？
+    + co = generator + promise
   * async/await
   * promise with bluebird
 - TEST
