@@ -24,12 +24,12 @@
 
 ## 实现功能点
 
-- [koa基础](#koa--)
-  * [上下文](#---)
-- [koa-generator](#koa-generator)
-  * [创建项目](#----)
-  * [切换视图](#----)
-- [HTTP](#http)
+- koa基础
+  * 上下文
+- koa-generator
+  * 创建项目
+  * 切换视图
+- HTTP
   * Get请求
     + 如何获取query参数
     + 如何获取params
@@ -40,17 +40,17 @@
     + Post with raw
   * 上传
     + multer
-- [DB](#db)
-  * [MySQL](#mysql)
-  * [Mongo](#mongo)
-- [流程控制](#----)
-  * [co](#co)
-  * [async/await](#async-await)
-  * [promise with bluebird](#promise-with-bluebird)%
-- [TEST](#test)
-  * [Mocha](#mocha)
-  * [supertest](#supertest)
-- [DEPLOY](#deploy)
+- DB
+  * MySQL
+  * Mongo
+- 流程控制
+  * co
+  * async/await
+  * promise with bluebird
+- TEST
+  * Mocha
+  * supertest
+- DEPLOY
 
 ## 预览
 
