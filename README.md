@@ -94,7 +94,7 @@
 
 如有建议或意见，请在issue提问或邮件
 
-当然也可以在国内最专业的cnode论坛上回复[《一起学koa》](https://cnodejs.org/topic/5668e0a55af0e6ab3bf1a1d8也)
+当然也可以在国内最专业的cnode论坛上回复[《一起学koa》](https://cnodejs.org/topic/5668e0a55af0e6ab3bf1a1d8)
 
 ## License
 
