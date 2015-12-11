@@ -57,6 +57,7 @@
 - [@fundon](https://github.com/fundon)
 - [@alsotang](https://github.com/alsotang)
 
+用明白不一定写明白，但写明白就一定能用明白，大家加油
 
 ## Contributing
 
