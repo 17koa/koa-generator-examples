@@ -30,11 +30,16 @@
   * [创建项目](#----)
   * [切换视图](#----)
 - [HTTP](#http)
-  * [Get](#get)
-    + [如何获取query参数](#----query--)
-    + [如何获取params](#----params)
-  * [Post](#post)
-  * [上传](#--)
+  * Get请求
+    + 如何获取query参数
+    + 如何获取params
+  * Post请求
+    + 从post获取参数
+    + Post with x-www-form-urlencoded
+    + Post with form-data
+    + Post with raw
+  * 上传
+    + multer
 - [DB](#db)
   * [MySQL](#mysql)
   * [Mongo](#mongo)
