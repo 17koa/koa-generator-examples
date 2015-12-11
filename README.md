@@ -22,7 +22,17 @@
   - 1.x.md放koa1.x版本的用法
   - 2.x.md放koa2.x版本的用法
 
-## 实现功能点
+## koajs 1.x和2.x的区别
+
+1.x和2.x的都是基于ctx（上下文）模型实现的
+
+目前2.x还没没有完全定下来
+
+- nodejs 4.0+支持的es6语法
+- async/await支持
+- generator不能直接使用，必须使用co类的包装后才可以
+
+## 目录
 
 - koa基础
   * 上下文
@@ -51,6 +61,7 @@
   * Mocha
   * supertest
 - DEPLOY
+- [FAQ](faq.md)
 
 ## 预览
 
