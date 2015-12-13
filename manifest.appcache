@@ -1,10 +1,20 @@
 CACHE MANIFEST
-# Revision 1449985766477
+# Revision 1449987915263
 
 CACHE:
+async/async_await/index.html
+async/generator_co/co.html
+async/generator_co/generator.html
+async/generator_co/index.html
+async/index.html
+async/promise_with_bluebird/index.html
 index.html
 basic/README.html
 basic/ctx.html
+http/README.html
+http/get/index.html
+http/get/params.html
+http/get/query.html
 koa-generator/README.html
 koa-generator/change_views.html
 koa-generator/create_project.html
