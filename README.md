@@ -14,13 +14,12 @@
 - 提issue
 - 根据某个issue，fork并实现
 - 提交pr
-- 合并pr并发布
+- 合并pr并提交
+- 发布到git pages上
 
 ## 版本说明
 
-- README.md放说明和实现规范
-  - 1.x.md放koa1.x版本的用法
-  - 2.x.md放koa2.x版本的用法
+目前Koa 2.x还没有发布，先以Koa 1.x为主
 
 ## koajs 1.x和2.x的区别
 
@@ -70,7 +69,7 @@
 
 ## 预览
 
-- [一起学koa之1.x版本预览](1.x.md)
+- [一起学koa之1.x版本预览](http://base-n.github.io/koa-generator-examples/)
 - [一起学koa之2.x版本预览](2.x.md)
 
 ## 技术顾问
