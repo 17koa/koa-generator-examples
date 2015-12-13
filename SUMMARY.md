@@ -30,4 +30,5 @@
   * [Mocha](test/mocha/index.md)
   * [Supertest](test/supertest/index.md)
 - [部署](deploy/index.md)
+- [最佳实践](practice/index.md)
 - [FAQ](faq/index.md)

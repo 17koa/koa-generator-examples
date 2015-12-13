@@ -52,7 +52,7 @@
     + Post with raw
   * 上传
     + multer
-- DB
+- 数据库
   * MySQL
   * Mongo
 - 流程控制
@@ -61,11 +61,12 @@
     + co = generator + promise
   * async/await
   * promise with bluebird
-- TEST
+- 测试
   * Mocha
   * supertest
-- DEPLOY
-- [FAQ](faq.md)
+- 部署
+- 最佳实践
+- FAQ
 
 ## 预览
 
