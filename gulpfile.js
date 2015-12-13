@@ -6,6 +6,6 @@ gulp.task('deploy', function() {
     .pipe(ghPages());
 });
 
-gulp.task('default', 'deploy', function() {
+gulp.task('default', ['deploy'], function() {
   console.log('complete!')
 });
