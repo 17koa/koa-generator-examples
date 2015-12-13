@@ -28,6 +28,6 @@
    * [promise with bluebird](async/promise_with_bluebird/index.md)
 - [测试](test/index.md)
   * [Mocha](test/mocha/index.md)
-  * [supertest](test/supertest/index.md)
+  * [Supertest](test/supertest/index.md)
 - [部署](deploy/index.md)
 - [FAQ](faq/index.md)
