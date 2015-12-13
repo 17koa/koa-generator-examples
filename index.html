@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Introduction | 一起学koa</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="大家一起学习koa">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="base-n">
+    
+    
+    <link rel="next" href="./basic/README.html" />
+    
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="0" data-basepath="." data-revision="1449983667642">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/base-n/koa-generator-examples" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/base-n/koa-generator-examples/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/base-n/koa-generator-examples/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >一起学koa</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/base-n" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/base-n/koa-generator-examples/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/base-n/koa-generator-examples/edit/master/README.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="basic/README.html">
+            
+            <a href="./basic/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Koa基础
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="basic/ctx.html">
+            
+            <a href="./basic/ctx.html">
+                <i class="fa fa-check"></i> <b>1.1.</b> 上下文
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 0%;min-width: 0%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./basic/README.html" title="Koa基础" class="chapter  new-chapter" data-progress="1" style="left: 50%;"></a>
+    
+        <a href="./basic/ctx.html" title="上下文" class="chapter  " data-progress="1.1" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_20">
+                    
+                        <h1 id="-koa">一起学koa</h1>
+<h2 id="-">宗旨</h2>
+<p>大家一起学习koa</p>
+<ul>
+<li>暂时不会的可以学会</li>
+<li>会的可以帮助他人，查缺补漏，提供更多最佳实践</li>
+</ul>
+<h2 id="-">参与流程</h2>
+<p>通过提问、实现，pr的方式</p>
+<ul>
+<li>提issue</li>
+<li>根据某个issue，fork并实现</li>
+<li>提交pr</li>
+<li>合并pr并发布</li>
+</ul>
+<h2 id="-">版本说明</h2>
+<ul>
+<li>README.md放说明和实现规范<ul>
+<li>1.x.md放koa1.x版本的用法</li>
+<li>2.x.md放koa2.x版本的用法</li>
+</ul>
+</li>
+</ul>
+<h2 id="koajs-1-x-2-x-">koajs 1.x和2.x的区别</h2>
+<p>1.x和2.x的都是基于ctx（上下文）模型实现的</p>
+<p>目前2.x还没没有完全定下来</p>
+<ul>
+<li>nodejs 4.0+支持的es6语法</li>
+<li>async/await支持</li>
+<li>generator不能直接使用，必须使用co类的包装后才可以</li>
+</ul>
+<h2 id="-">目录</h2>
+<ul>
+<li>koa基础<ul>
+<li>上下文</li>
+</ul>
+</li>
+<li>koa-generator<ul>
+<li>创建项目</li>
+<li>切换视图</li>
+</ul>
+</li>
+<li>HTTP<ul>
+<li>Get请求<ul>
+<li>如何获取query参数</li>
+<li>如何获取params</li>
+</ul>
+</li>
+<li>Post请求<ul>
+<li>从post获取参数</li>
+<li>Post with x-www-form-urlencoded</li>
+<li>Post with form-data</li>
+<li>Post with raw</li>
+</ul>
+</li>
+<li>上传<ul>
+<li>multer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DB<ul>
+<li>MySQL</li>
+<li>Mongo</li>
+</ul>
+</li>
+<li>流程控制<ul>
+<li>generator/co<ul>
+<li>es6的generator是什么？</li>
+<li>co = generator + promise</li>
+</ul>
+</li>
+<li>async/await</li>
+<li>promise with bluebird</li>
+</ul>
+</li>
+<li>TEST<ul>
+<li>Mocha</li>
+<li>supertest</li>
+</ul>
+</li>
+<li>DEPLOY</li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+<h2 id="-">预览</h2>
+<ul>
+<li><a href="1.x.html">一起学koa之1.x版本预览</a></li>
+<li><a href="2.x.html">一起学koa之2.x版本预览</a></li>
+</ul>
+<h2 id="-">技术顾问</h2>
+<ul>
+<li><a href="https://github.com/fundon" target="_blank">@fundon</a></li>
+<li><a href="https://github.com/alsotang" target="_blank">@alsotang</a></li>
+</ul>
+<p>用明白不一定写明白，但写明白就一定能用明白，大家加油</p>
+<h2 id="contributing">Contributing</h2>
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am &#39;Add some feature&#39;</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+<h2 id="version-history">Version History</h2>
+<ul>
+<li>v0.1.0 初始化版本</li>
+</ul>
+<h2 id="-fork-">欢迎fork和反馈</h2>
+<p>如有建议或意见，请在issue提问或邮件</p>
+<p>当然也可以在国内最专业的cnode论坛上回复<a href="https://cnodejs.org/topic/5668e0a55af0e6ab3bf1a1d8" target="_blank">《一起学koa》</a></p>
+<h2 id="license">License</h2>
+<p>this repo is released under the <a href="http://www.opensource.org/licenses/MIT" target="_blank">MIT
+License</a>.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <a href="./basic/README.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Koa基础"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

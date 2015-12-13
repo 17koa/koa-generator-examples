@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/base-n/koa-generator-examples#readme",
   "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-gh-pages": "^0.5.4",
     "nodemon": "^1.8.1"
   }
 }
