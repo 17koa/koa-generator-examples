@@ -17,7 +17,7 @@
        * [Post with form-data](http/post/form-data.md)
        * [Post with raw](http/post/raw.md)
    * [Upload](http/upload)
-* [数据库]((db/index.md))
+* [数据库](db/index.md))
   * [MySQL](db/mysql/index.md)
   * [Mongo](db/mongo/index.md)
 * [流程控制](async/index.md)
