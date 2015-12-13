@@ -1,25 +1,37 @@
 CACHE MANIFEST
-# Revision 1449987915263
+# Revision 1449989726598
 
 CACHE:
+db/mongo/index.html
+db/mysql/index.html
+index.html
 async/async_await/index.html
 async/generator_co/co.html
 async/generator_co/generator.html
 async/generator_co/index.html
 async/index.html
 async/promise_with_bluebird/index.html
-index.html
 basic/README.html
 basic/ctx.html
+deploy/index.html
+faq/index.html
 http/README.html
 http/get/index.html
 http/get/params.html
 http/get/query.html
+http/post/form-data.html
+http/post/form-urlencoded.html
+http/post/params.html
+http/post/index.html
+http/post/raw.html
 koa-generator/README.html
 koa-generator/change_views.html
 koa-generator/create_project.html
 koa-generator/install.html
 koa-generator/routes.html
+test/index.html
+test/mocha/index.html
+test/supertest/index.html
 gitbook/app.js
 gitbook/fonts/fontawesome/FontAwesome.otf
 gitbook/fonts/fontawesome/fontawesome-webfont.eot

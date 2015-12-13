@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>如何获取params | 一起学koa</title>
+        <title>Post with form-data | 一起学koa</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.5.2">
@@ -19,10 +19,10 @@
     <meta name="author" content="base-n">
     
     
-    <link rel="next" href="../../http/post/index.html" />
+    <link rel="next" href="../../http/post/raw.html" />
     
     
-    <link rel="prev" href="../../http/get/query.html" />
+    <link rel="prev" href="../../http/post/form-urlencoded.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.1.2" data-basepath="../.." data-revision="1449989726597">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.2.3" data-basepath="../.." data-revision="1449989726597">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -118,7 +118,7 @@
         
         
         <li>
-            <a href="https://github.com/base-n/koa-generator-examples/edit/master/http/get/params.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/base-n/koa-generator-examples/edit/master/http/post/form-data.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -480,7 +480,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 35.483870967741936%;min-width: 32.25806451612903%;"></div>
+        <div class="inner" style="width: 48.38709677419355%;min-width: 45.16129032258065%;"></div>
     </div>
     <div class="chapters">
     
@@ -508,13 +508,13 @@
     
         <a href="../../http/get/params.html" title="如何获取params" class="chapter done " data-progress="3.1.2" style="left: 35.483870967741936%;"></a>
     
-        <a href="../../http/post/index.html" title="Post" class="chapter  " data-progress="3.2" style="left: 38.70967741935484%;"></a>
+        <a href="../../http/post/index.html" title="Post" class="chapter done " data-progress="3.2" style="left: 38.70967741935484%;"></a>
     
-        <a href="../../http/post/params.html" title="从post获取参数" class="chapter  " data-progress="3.2.1" style="left: 41.935483870967744%;"></a>
+        <a href="../../http/post/params.html" title="从post获取参数" class="chapter done " data-progress="3.2.1" style="left: 41.935483870967744%;"></a>
     
-        <a href="../../http/post/form-urlencoded.html" title="Post with x-www-form-urlencoded" class="chapter  " data-progress="3.2.2" style="left: 45.16129032258065%;"></a>
+        <a href="../../http/post/form-urlencoded.html" title="Post with x-www-form-urlencoded" class="chapter done " data-progress="3.2.2" style="left: 45.16129032258065%;"></a>
     
-        <a href="../../http/post/form-data.html" title="Post with form-data" class="chapter  " data-progress="3.2.3" style="left: 48.38709677419355%;"></a>
+        <a href="../../http/post/form-data.html" title="Post with form-data" class="chapter done " data-progress="3.2.3" style="left: 48.38709677419355%;"></a>
     
         <a href="../../http/post/raw.html" title="Post with raw" class="chapter  " data-progress="3.2.4" style="left: 51.61290322580645%;"></a>
     
@@ -553,52 +553,10 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_18">
+                    <section class="normal" id="section-gitbook_20">
                     
-                        <h1 id="-params">如何获取params</h1>
-<p>express里经典用法</p>
-<p><a href="http://expressjs.com/en/4x/api.html#app.param" target="_blank">http://expressjs.com/en/4x/api.html#app.param</a></p>
-<pre><code class="lang-javascript">app.get(<span class="hljs-string">'/user/:id'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res, next)</span> {</span>
-  console.log(<span class="hljs-string">'although this matches'</span>);
-  next();
-});
-</code></pre>
-<p>请求是</p>
-<p>访问<a href="http://127.0.0.1:3000/users/alfred" target="_blank">http://127.0.0.1:3000/users/alfred</a></p>
-<p>那么koa里如何使用呢？</p>
-<p>关于路由</p>
-<ul>
-<li>express是自带路由</li>
-<li>koa这货没有，所以，需要另外集成，koa-generator使用的是目前比较流行的koa-router（我喜欢它的是Express-style）</li>
-</ul>
-<p><a href="https://github.com/alexmingoia/koa-router" target="_blank">https://github.com/alexmingoia/koa-router</a></p>
-<p>好吧</p>
-<p>routes/users.js</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> router = <span class="hljs-built_in">require</span>(<span class="hljs-string">'koa-router'</span>)();
-
-router.get(<span class="hljs-string">'/:id'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> *<span class="hljs-params">(next)</span> {</span>
-  console.log(<span class="hljs-keyword">this</span>.params);
-  console.log(<span class="hljs-keyword">this</span>.request.params);
-  <span class="hljs-keyword">this</span>.body = <span class="hljs-string">'this a users response!'</span>;
-});
-
-module.exports = router;
-</code></pre>
-<p>执行</p>
-<pre><code class="lang-shell">npm run 2
-</code></pre>
-<p>访问<a href="http://127.0.0.1:3000/users/alfred" target="_blank">http://127.0.0.1:3000/users/alfred</a></p>
-<p>日志</p>
-<pre><code>  &lt;-- GET /users/alfred
-{ id: &#39;alfred&#39; }
-undefined
-GET /users/alfred - 28
-</code></pre><p>首先肯定一点，this.params是可以取到params的，这点和express路由用法类似</p>
-<p>但是注意的是</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.request.params != <span class="hljs-keyword">this</span>.params
-</code></pre>
-<p>这说明params不是request上的方法，翻查源码，确实是如此</p>
-<p><a href="https://github.com/alexmingoia/koa-router/blob/5.x/lib/router.js#L317" target="_blank">https://github.com/alexmingoia/koa-router/blob/5.x/lib/router.js#L317</a></p>
+                        <h1 id="post-with-form-data">Post with form-data</h1>
+<p>todo</p>
 
                     
                     </section>
@@ -608,10 +566,10 @@ GET /users/alfred - 28
         </div>
 
         
-        <a href="../../http/get/query.html" class="navigation navigation-prev " aria-label="Previous page: 如何获取query参数"><i class="fa fa-angle-left"></i></a>
+        <a href="../../http/post/form-urlencoded.html" class="navigation navigation-prev " aria-label="Previous page: Post with x-www-form-urlencoded"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../http/post/index.html" class="navigation navigation-next " aria-label="Next page: Post"><i class="fa fa-angle-right"></i></a>
+        <a href="../../http/post/raw.html" class="navigation navigation-next " aria-label="Next page: Post with raw"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
