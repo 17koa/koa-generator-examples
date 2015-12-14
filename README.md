@@ -76,6 +76,7 @@
 
 - [@fundon](https://github.com/fundon)
 - [@alsotang](https://github.com/alsotang)
+- [@老雷](https://github.com/leizongmin)
 
 用明白不一定写明白，但写明白就一定能用明白，大家加油
 
