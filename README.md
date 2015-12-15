@@ -28,7 +28,7 @@
 目前2.x还没没有完全定下来
 
 - nodejs 4.0+支持的es6语法
-- async/await支持
+- async/await支持 (现在须借由 babel)
 - generator不能直接使用，必须使用co类的包装后才可以
 
 ## 目录
