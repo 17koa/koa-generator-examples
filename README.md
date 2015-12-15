@@ -46,11 +46,9 @@
     + 如何获取params
   * Post请求
     + 从post获取参数
-    + Post with x-www-form-urlencoded
-    + Post with form-data
+    + 标准表单(Post with x-www-form-urlencoded)
+    + 文件上传(Post with form-data)
     + Post with raw
-  * 上传
-    + multer
 - 数据库
   * MySQL
   * Mongo

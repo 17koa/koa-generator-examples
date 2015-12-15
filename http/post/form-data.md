@@ -1,4 +1,4 @@
-# Post with form-data
+# 文件上传 Post with form-data
 
 主要目的是为了上传
 
@@ -21,8 +21,7 @@ var app = require('koa')()
 
 var multer = require('koa-multer');
 
-app.use(multer({ dest: './uploads/'}))
-
+app.use(multer({ dest: './uploads/'}));
 ```
 
 You can access the fields and files in the request object:
