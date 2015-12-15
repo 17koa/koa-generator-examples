@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="../../manifest.appcache">
+<html lang="en-US" manifest="../manifest.appcache">
     
     <head>
         
         <meta charset="UTF-8">
-        <title>es6的generator是什么？ | 一起学koa</title>
+        <title>koa中的异常处理 | 一起学koa</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.5.2">
@@ -12,17 +12,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
     
     
     <meta name="author" content="base-n">
     
     
-    <link rel="next" href="../../async/generator_co/co.html" />
     
-    
-    <link rel="prev" href="../../async/generator_co/index.html" />
+    <link rel="prev" href="../faq/require_module.html" />
     
 
         
@@ -30,11 +28,11 @@
     <body>
         
         
-<link rel="stylesheet" href="../../gitbook/style.css">
+<link rel="stylesheet" href="../gitbook/style.css">
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="5.1.1" data-basepath="../.." data-revision="1450181462110">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="9.3" data-basepath=".." data-revision="1450181462110">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -89,7 +87,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-spinner fa-spin"></i>
-        <a href="../../" >一起学koa</a>
+        <a href="../" >一起学koa</a>
     </h1>
 </div>
 
@@ -118,7 +116,7 @@
         
         
         <li>
-            <a href="https://github.com/base-n/koa-generator-examples/edit/master/async/generator_co/generator.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/base-n/koa-generator-examples/edit/master/faq/catch_error.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -127,13 +125,13 @@
         
 
         <li data-level="0" data-path="index.html">
-            <a href="../../"><i class="fa fa-check"></i> Introduction</a>
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
         </li>
         
     
         <li class="chapter " data-level="1" data-path="basic/README.html">
             
-            <a href="../../basic/README.html">
+            <a href="../basic/README.html">
                 <i class="fa fa-check"></i> <b>1.</b> Koa基础
             </a>
             
@@ -143,7 +141,7 @@
     
         <li class="chapter " data-level="1.1" data-path="basic/ctx.html">
             
-            <a href="../../basic/ctx.html">
+            <a href="../basic/ctx.html">
                 <i class="fa fa-check"></i> <b>1.1.</b> 上下文
             </a>
             
@@ -157,7 +155,7 @@
     
         <li class="chapter " data-level="2" data-path="koa-generator/README.html">
             
-            <a href="../../koa-generator/README.html">
+            <a href="../koa-generator/README.html">
                 <i class="fa fa-check"></i> <b>2.</b> koa-generator
             </a>
             
@@ -167,7 +165,7 @@
     
         <li class="chapter " data-level="2.1" data-path="koa-generator/install.html">
             
-            <a href="../../koa-generator/install.html">
+            <a href="../koa-generator/install.html">
                 <i class="fa fa-check"></i> <b>2.1.</b> 安装
             </a>
             
@@ -176,7 +174,7 @@
     
         <li class="chapter " data-level="2.2" data-path="koa-generator/create_project.html">
             
-            <a href="../../koa-generator/create_project.html">
+            <a href="../koa-generator/create_project.html">
                 <i class="fa fa-check"></i> <b>2.2.</b> 创建项目
             </a>
             
@@ -185,7 +183,7 @@
     
         <li class="chapter " data-level="2.3" data-path="koa-generator/change_views.html">
             
-            <a href="../../koa-generator/change_views.html">
+            <a href="../koa-generator/change_views.html">
                 <i class="fa fa-check"></i> <b>2.3.</b> 更改视图模板引擎
             </a>
             
@@ -194,7 +192,7 @@
     
         <li class="chapter " data-level="2.4" data-path="koa-generator/routes.html">
             
-            <a href="../../koa-generator/routes.html">
+            <a href="../koa-generator/routes.html">
                 <i class="fa fa-check"></i> <b>2.4.</b> Routes
             </a>
             
@@ -208,7 +206,7 @@
     
         <li class="chapter " data-level="3" data-path="http/README.html">
             
-            <a href="../../http/README.html">
+            <a href="../http/README.html">
                 <i class="fa fa-check"></i> <b>3.</b> HTTP
             </a>
             
@@ -218,7 +216,7 @@
     
         <li class="chapter " data-level="3.1" data-path="http/get/index.html">
             
-            <a href="../../http/get/index.html">
+            <a href="../http/get/index.html">
                 <i class="fa fa-check"></i> <b>3.1.</b> Get
             </a>
             
@@ -228,7 +226,7 @@
     
         <li class="chapter " data-level="3.1.1" data-path="http/get/query.html">
             
-            <a href="../../http/get/query.html">
+            <a href="../http/get/query.html">
                 <i class="fa fa-check"></i> <b>3.1.1.</b> 如何获取query参数
             </a>
             
@@ -237,7 +235,7 @@
     
         <li class="chapter " data-level="3.1.2" data-path="http/get/params.html">
             
-            <a href="../../http/get/params.html">
+            <a href="../http/get/params.html">
                 <i class="fa fa-check"></i> <b>3.1.2.</b> 如何获取params
             </a>
             
@@ -251,7 +249,7 @@
     
         <li class="chapter " data-level="3.2" data-path="http/post/index.html">
             
-            <a href="../../http/post/index.html">
+            <a href="../http/post/index.html">
                 <i class="fa fa-check"></i> <b>3.2.</b> Post
             </a>
             
@@ -261,7 +259,7 @@
     
         <li class="chapter " data-level="3.2.1" data-path="http/post/params.html">
             
-            <a href="../../http/post/params.html">
+            <a href="../http/post/params.html">
                 <i class="fa fa-check"></i> <b>3.2.1.</b> 从post获取参数
             </a>
             
@@ -270,7 +268,7 @@
     
         <li class="chapter " data-level="3.2.2" data-path="http/post/form-urlencoded.html">
             
-            <a href="../../http/post/form-urlencoded.html">
+            <a href="../http/post/form-urlencoded.html">
                 <i class="fa fa-check"></i> <b>3.2.2.</b> 标准表单(Post with x-www-form-urlencoded)
             </a>
             
@@ -279,7 +277,7 @@
     
         <li class="chapter " data-level="3.2.3" data-path="http/post/form-data.html">
             
-            <a href="../../http/post/form-data.html">
+            <a href="../http/post/form-data.html">
                 <i class="fa fa-check"></i> <b>3.2.3.</b> 文件上传(Post with form-data)
             </a>
             
@@ -288,7 +286,7 @@
     
         <li class="chapter " data-level="3.2.4" data-path="http/post/raw.html">
             
-            <a href="../../http/post/raw.html">
+            <a href="../http/post/raw.html">
                 <i class="fa fa-check"></i> <b>3.2.4.</b> Post with raw
             </a>
             
@@ -307,7 +305,7 @@
     
         <li class="chapter " data-level="4" data-path="db/index.html">
             
-            <a href="../../db/index.html">
+            <a href="../db/index.html">
                 <i class="fa fa-check"></i> <b>4.</b> 数据库
             </a>
             
@@ -317,7 +315,7 @@
     
         <li class="chapter " data-level="4.1" data-path="db/mysql/index.html">
             
-            <a href="../../db/mysql/index.html">
+            <a href="../db/mysql/index.html">
                 <i class="fa fa-check"></i> <b>4.1.</b> MySQL
             </a>
             
@@ -326,7 +324,7 @@
     
         <li class="chapter " data-level="4.2" data-path="db/mongo/index.html">
             
-            <a href="../../db/mongo/index.html">
+            <a href="../db/mongo/index.html">
                 <i class="fa fa-check"></i> <b>4.2.</b> Mongo
             </a>
             
@@ -340,7 +338,7 @@
     
         <li class="chapter " data-level="5" data-path="async/index.html">
             
-            <a href="../../async/index.html">
+            <a href="../async/index.html">
                 <i class="fa fa-check"></i> <b>5.</b> 流程控制
             </a>
             
@@ -350,7 +348,7 @@
     
         <li class="chapter " data-level="5.1" data-path="async/generator_co/index.html">
             
-            <a href="../../async/generator_co/index.html">
+            <a href="../async/generator_co/index.html">
                 <i class="fa fa-check"></i> <b>5.1.</b> generator/co
             </a>
             
@@ -360,7 +358,7 @@
     
         <li class="chapter " data-level="5.1.1" data-path="async/generator_co/generator.html">
             
-            <a href="../../async/generator_co/generator.html">
+            <a href="../async/generator_co/generator.html">
                 <i class="fa fa-check"></i> <b>5.1.1.</b> es6的generator是什么？
             </a>
             
@@ -369,7 +367,7 @@
     
         <li class="chapter " data-level="5.1.2" data-path="async/generator_co/co.html">
             
-            <a href="../../async/generator_co/co.html">
+            <a href="../async/generator_co/co.html">
                 <i class="fa fa-check"></i> <b>5.1.2.</b> co = generator + promise
             </a>
             
@@ -383,7 +381,7 @@
     
         <li class="chapter " data-level="5.2" data-path="async/async_await/index.html">
             
-            <a href="../../async/async_await/index.html">
+            <a href="../async/async_await/index.html">
                 <i class="fa fa-check"></i> <b>5.2.</b> async/await
             </a>
             
@@ -392,7 +390,7 @@
     
         <li class="chapter " data-level="5.3" data-path="async/promise_with_bluebird/index.html">
             
-            <a href="../../async/promise_with_bluebird/index.html">
+            <a href="../async/promise_with_bluebird/index.html">
                 <i class="fa fa-check"></i> <b>5.3.</b> promise with bluebird
             </a>
             
@@ -406,7 +404,7 @@
     
         <li class="chapter " data-level="6" data-path="test/index.html">
             
-            <a href="../../test/index.html">
+            <a href="../test/index.html">
                 <i class="fa fa-check"></i> <b>6.</b> 测试
             </a>
             
@@ -416,7 +414,7 @@
     
         <li class="chapter " data-level="6.1" data-path="test/mocha/index.html">
             
-            <a href="../../test/mocha/index.html">
+            <a href="../test/mocha/index.html">
                 <i class="fa fa-check"></i> <b>6.1.</b> Mocha
             </a>
             
@@ -425,7 +423,7 @@
     
         <li class="chapter " data-level="6.2" data-path="test/supertest/index.html">
             
-            <a href="../../test/supertest/index.html">
+            <a href="../test/supertest/index.html">
                 <i class="fa fa-check"></i> <b>6.2.</b> Supertest
             </a>
             
@@ -439,7 +437,7 @@
     
         <li class="chapter " data-level="7" data-path="deploy/index.html">
             
-            <a href="../../deploy/index.html">
+            <a href="../deploy/index.html">
                 <i class="fa fa-check"></i> <b>7.</b> 部署
             </a>
             
@@ -448,7 +446,7 @@
     
         <li class="chapter " data-level="8" data-path="practice/index.html">
             
-            <a href="../../practice/index.html">
+            <a href="../practice/index.html">
                 <i class="fa fa-check"></i> <b>8.</b> 最佳实践
             </a>
             
@@ -457,7 +455,7 @@
     
         <li class="chapter " data-level="9" data-path="faq/index.html">
             
-            <a href="../../faq/index.html">
+            <a href="../faq/index.html">
                 <i class="fa fa-check"></i> <b>9.</b> FAQ
             </a>
             
@@ -467,7 +465,7 @@
     
         <li class="chapter " data-level="9.1" data-path="faq/gitbook.html">
             
-            <a href="../../faq/gitbook.html">
+            <a href="../faq/gitbook.html">
                 <i class="fa fa-check"></i> <b>9.1.</b> 如何发布本书到git pages
             </a>
             
@@ -476,7 +474,7 @@
     
         <li class="chapter " data-level="9.2" data-path="faq/require_module.html">
             
-            <a href="../../faq/require_module.html">
+            <a href="../faq/require_module.html">
                 <i class="fa fa-check"></i> <b>9.2.</b> 如何知道require模块的用法
             </a>
             
@@ -485,7 +483,7 @@
     
         <li class="chapter " data-level="9.3" data-path="faq/catch_error.html">
             
-            <a href="../../faq/catch_error.html">
+            <a href="../faq/catch_error.html">
                 <i class="fa fa-check"></i> <b>9.3.</b> koa中的异常处理
             </a>
             
@@ -513,124 +511,99 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 64.70588235294117%;min-width: 61.76470588235294%;"></div>
+        <div class="inner" style="width: 100%;min-width: 97.05882352941177%;"></div>
     </div>
     <div class="chapters">
     
-        <a href="../../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
-        <a href="../../basic/README.html" title="Koa基础" class="chapter done new-chapter" data-progress="1" style="left: 2.9411764705882355%;"></a>
+        <a href="../basic/README.html" title="Koa基础" class="chapter done new-chapter" data-progress="1" style="left: 2.9411764705882355%;"></a>
     
-        <a href="../../basic/ctx.html" title="上下文" class="chapter done " data-progress="1.1" style="left: 5.882352941176471%;"></a>
+        <a href="../basic/ctx.html" title="上下文" class="chapter done " data-progress="1.1" style="left: 5.882352941176471%;"></a>
     
-        <a href="../../koa-generator/README.html" title="koa-generator" class="chapter done new-chapter" data-progress="2" style="left: 8.823529411764707%;"></a>
+        <a href="../koa-generator/README.html" title="koa-generator" class="chapter done new-chapter" data-progress="2" style="left: 8.823529411764707%;"></a>
     
-        <a href="../../koa-generator/install.html" title="安装" class="chapter done " data-progress="2.1" style="left: 11.764705882352942%;"></a>
+        <a href="../koa-generator/install.html" title="安装" class="chapter done " data-progress="2.1" style="left: 11.764705882352942%;"></a>
     
-        <a href="../../koa-generator/create_project.html" title="创建项目" class="chapter done " data-progress="2.2" style="left: 14.705882352941176%;"></a>
+        <a href="../koa-generator/create_project.html" title="创建项目" class="chapter done " data-progress="2.2" style="left: 14.705882352941176%;"></a>
     
-        <a href="../../koa-generator/change_views.html" title="更改视图模板引擎" class="chapter done " data-progress="2.3" style="left: 17.647058823529413%;"></a>
+        <a href="../koa-generator/change_views.html" title="更改视图模板引擎" class="chapter done " data-progress="2.3" style="left: 17.647058823529413%;"></a>
     
-        <a href="../../koa-generator/routes.html" title="Routes" class="chapter done " data-progress="2.4" style="left: 20.58823529411765%;"></a>
+        <a href="../koa-generator/routes.html" title="Routes" class="chapter done " data-progress="2.4" style="left: 20.58823529411765%;"></a>
     
-        <a href="../../http/README.html" title="HTTP" class="chapter done new-chapter" data-progress="3" style="left: 23.529411764705884%;"></a>
+        <a href="../http/README.html" title="HTTP" class="chapter done new-chapter" data-progress="3" style="left: 23.529411764705884%;"></a>
     
-        <a href="../../http/get/index.html" title="Get" class="chapter done " data-progress="3.1" style="left: 26.470588235294116%;"></a>
+        <a href="../http/get/index.html" title="Get" class="chapter done " data-progress="3.1" style="left: 26.470588235294116%;"></a>
     
-        <a href="../../http/get/query.html" title="如何获取query参数" class="chapter done " data-progress="3.1.1" style="left: 29.41176470588235%;"></a>
+        <a href="../http/get/query.html" title="如何获取query参数" class="chapter done " data-progress="3.1.1" style="left: 29.41176470588235%;"></a>
     
-        <a href="../../http/get/params.html" title="如何获取params" class="chapter done " data-progress="3.1.2" style="left: 32.35294117647059%;"></a>
+        <a href="../http/get/params.html" title="如何获取params" class="chapter done " data-progress="3.1.2" style="left: 32.35294117647059%;"></a>
     
-        <a href="../../http/post/index.html" title="Post" class="chapter done " data-progress="3.2" style="left: 35.294117647058826%;"></a>
+        <a href="../http/post/index.html" title="Post" class="chapter done " data-progress="3.2" style="left: 35.294117647058826%;"></a>
     
-        <a href="../../http/post/params.html" title="从post获取参数" class="chapter done " data-progress="3.2.1" style="left: 38.23529411764706%;"></a>
+        <a href="../http/post/params.html" title="从post获取参数" class="chapter done " data-progress="3.2.1" style="left: 38.23529411764706%;"></a>
     
-        <a href="../../http/post/form-urlencoded.html" title="标准表单(Post with x-www-form-urlencoded)" class="chapter done " data-progress="3.2.2" style="left: 41.1764705882353%;"></a>
+        <a href="../http/post/form-urlencoded.html" title="标准表单(Post with x-www-form-urlencoded)" class="chapter done " data-progress="3.2.2" style="left: 41.1764705882353%;"></a>
     
-        <a href="../../http/post/form-data.html" title="文件上传(Post with form-data)" class="chapter done " data-progress="3.2.3" style="left: 44.11764705882353%;"></a>
+        <a href="../http/post/form-data.html" title="文件上传(Post with form-data)" class="chapter done " data-progress="3.2.3" style="left: 44.11764705882353%;"></a>
     
-        <a href="../../http/post/raw.html" title="Post with raw" class="chapter done " data-progress="3.2.4" style="left: 47.05882352941177%;"></a>
+        <a href="../http/post/raw.html" title="Post with raw" class="chapter done " data-progress="3.2.4" style="left: 47.05882352941177%;"></a>
     
-        <a href="../../db/index.html" title="数据库" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
+        <a href="../db/index.html" title="数据库" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
     
-        <a href="../../db/mysql/index.html" title="MySQL" class="chapter done " data-progress="4.1" style="left: 52.94117647058823%;"></a>
+        <a href="../db/mysql/index.html" title="MySQL" class="chapter done " data-progress="4.1" style="left: 52.94117647058823%;"></a>
     
-        <a href="../../db/mongo/index.html" title="Mongo" class="chapter done " data-progress="4.2" style="left: 55.88235294117647%;"></a>
+        <a href="../db/mongo/index.html" title="Mongo" class="chapter done " data-progress="4.2" style="left: 55.88235294117647%;"></a>
     
-        <a href="../../async/index.html" title="流程控制" class="chapter done new-chapter" data-progress="5" style="left: 58.8235294117647%;"></a>
+        <a href="../async/index.html" title="流程控制" class="chapter done new-chapter" data-progress="5" style="left: 58.8235294117647%;"></a>
     
-        <a href="../../async/generator_co/index.html" title="generator/co" class="chapter done " data-progress="5.1" style="left: 61.76470588235294%;"></a>
+        <a href="../async/generator_co/index.html" title="generator/co" class="chapter done " data-progress="5.1" style="left: 61.76470588235294%;"></a>
     
-        <a href="../../async/generator_co/generator.html" title="es6的generator是什么？" class="chapter done " data-progress="5.1.1" style="left: 64.70588235294117%;"></a>
+        <a href="../async/generator_co/generator.html" title="es6的generator是什么？" class="chapter done " data-progress="5.1.1" style="left: 64.70588235294117%;"></a>
     
-        <a href="../../async/generator_co/co.html" title="co = generator + promise" class="chapter  " data-progress="5.1.2" style="left: 67.6470588235294%;"></a>
+        <a href="../async/generator_co/co.html" title="co = generator + promise" class="chapter done " data-progress="5.1.2" style="left: 67.6470588235294%;"></a>
     
-        <a href="../../async/async_await/index.html" title="async/await" class="chapter  " data-progress="5.2" style="left: 70.58823529411765%;"></a>
+        <a href="../async/async_await/index.html" title="async/await" class="chapter done " data-progress="5.2" style="left: 70.58823529411765%;"></a>
     
-        <a href="../../async/promise_with_bluebird/index.html" title="promise with bluebird" class="chapter  " data-progress="5.3" style="left: 73.52941176470588%;"></a>
+        <a href="../async/promise_with_bluebird/index.html" title="promise with bluebird" class="chapter done " data-progress="5.3" style="left: 73.52941176470588%;"></a>
     
-        <a href="../../test/index.html" title="测试" class="chapter  new-chapter" data-progress="6" style="left: 76.47058823529412%;"></a>
+        <a href="../test/index.html" title="测试" class="chapter done new-chapter" data-progress="6" style="left: 76.47058823529412%;"></a>
     
-        <a href="../../test/mocha/index.html" title="Mocha" class="chapter  " data-progress="6.1" style="left: 79.41176470588235%;"></a>
+        <a href="../test/mocha/index.html" title="Mocha" class="chapter done " data-progress="6.1" style="left: 79.41176470588235%;"></a>
     
-        <a href="../../test/supertest/index.html" title="Supertest" class="chapter  " data-progress="6.2" style="left: 82.3529411764706%;"></a>
+        <a href="../test/supertest/index.html" title="Supertest" class="chapter done " data-progress="6.2" style="left: 82.3529411764706%;"></a>
     
-        <a href="../../deploy/index.html" title="部署" class="chapter  new-chapter" data-progress="7" style="left: 85.29411764705883%;"></a>
+        <a href="../deploy/index.html" title="部署" class="chapter done new-chapter" data-progress="7" style="left: 85.29411764705883%;"></a>
     
-        <a href="../../practice/index.html" title="最佳实践" class="chapter  new-chapter" data-progress="8" style="left: 88.23529411764706%;"></a>
+        <a href="../practice/index.html" title="最佳实践" class="chapter done new-chapter" data-progress="8" style="left: 88.23529411764706%;"></a>
     
-        <a href="../../faq/index.html" title="FAQ" class="chapter  new-chapter" data-progress="9" style="left: 91.17647058823529%;"></a>
+        <a href="../faq/index.html" title="FAQ" class="chapter done new-chapter" data-progress="9" style="left: 91.17647058823529%;"></a>
     
-        <a href="../../faq/gitbook.html" title="如何发布本书到git pages" class="chapter  " data-progress="9.1" style="left: 94.11764705882354%;"></a>
+        <a href="../faq/gitbook.html" title="如何发布本书到git pages" class="chapter done " data-progress="9.1" style="left: 94.11764705882354%;"></a>
     
-        <a href="../../faq/require_module.html" title="如何知道require模块的用法" class="chapter  " data-progress="9.2" style="left: 97.05882352941177%;"></a>
+        <a href="../faq/require_module.html" title="如何知道require模块的用法" class="chapter done " data-progress="9.2" style="left: 97.05882352941177%;"></a>
     
-        <a href="../../faq/catch_error.html" title="koa中的异常处理" class="chapter  " data-progress="9.3" style="left: 100%;"></a>
+        <a href="../faq/catch_error.html" title="koa中的异常处理" class="chapter done " data-progress="9.3" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_10">
+                    <section class="normal" id="section-gitbook_16">
                     
-                        <h1 id="es6-generator-">es6的generator是什么？</h1>
-<p>generator指的是</p>
-<pre><code>function* xxx(){
-}
-</code></pre><p>是es6里的写法。</p>
-<pre><code>function* test() {
-    console.log(&#39;1&#39;);
-    yield 1;
-    console.log(&#39;2&#39;);
-    yield 2;
-    console.log(&#39;3&#39;);
-}
-</code></pre><p>代码中间插了两行yield，代表什么呢？</p>
-<ul>
-<li>当test执行到 yield 1这一行的时候，程序将被挂起，要等待执行下一步的指令；</li>
-<li>当接收到指令后，test将继续往下运行，直到yield 2这一行，然后程序又被挂起并等待指令；</li>
-<li>收到指令后，test又将继续运行，而下面已经没有yield了，那么函数运行结束。</li>
-</ul>
-<p>这是不是就像，我们调试代码的时候，给插的断点 ？</p>
-<p>当然，断点这个比喻，只是表象上比较相像，实质原理还是有非常大差异。</p>
-<p>yield就是让后面的generator执行完成后，才继续往下走。</p>
-<p>要注意，function后面多了一个星号，这样是表明这个函数将变成一个生成器函数，而不是一个普通函数了。意思就是，test这个函数，将不能被这样执行</p>
-<p>test();
-但可以获得一个生成器</p>
-<p>var gen = test();  // gen就是一个生成器了
-然后，生成器可以通过next()来执行运行</p>
-<p>gen.next();</p>
-<p>也就是上面说的，让函数继续运行的指令。</p>
-<p>简单地总结一下：</p>
-<ul>
-<li>生成器通过yield设置了一些类似”断点“的东西，使得函数执行到yield的时候会被阻断；</li>
-<li>生成器要通过next()指令一步一步地往下执行（两个yield之间为一步）；</li>
-<li>yield 语句后面带着的表达式或函数，将在阻断之前执行完毕；</li>
-<li>yield 语句下面的代码，将不可能在阻断之前被执行；</li>
-</ul>
-<p>由此可以看出，yield是如何将异步非阻塞代码，变成 异步阻塞代码。</p>
-
+                        <h1 id="koa-router-yield-app-on-error-">koa中的异常处理，比如router中某个yield可能抛错，这种情况下要返回请求是怎么做的呀，都是直接在app on error里面处理吗</h1>
+<p>在route里</p>
+<pre><code>co(function* () {
+  var result = yield Promise.resolve(true);
+  return result;
+}).then(function (value) {
+  console.log(value);
+}, function (err) {
+  // 异常处理
+  console.error(err.stack);
+});
+</code></pre>
                     
                     </section>
                 
@@ -639,24 +612,22 @@
         </div>
 
         
-        <a href="../../async/generator_co/index.html" class="navigation navigation-prev " aria-label="Previous page: generator/co"><i class="fa fa-angle-left"></i></a>
+        <a href="../faq/require_module.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 如何知道require模块的用法"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../../async/generator_co/co.html" class="navigation navigation-next " aria-label="Next page: co = generator + promise"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
-<script src="../../gitbook/app.js"></script>
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
 
     
     <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
     
 
 <script>
