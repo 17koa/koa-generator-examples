@@ -11,11 +11,18 @@ $ npm install --save koa-multer@0.0.2
 Usage
 
 ```javascript
-var express = require('express')
-var multer  = require('multer')
+var app = require('koa')()
+  , koa = require('koa-router')()
+  , logger = require('koa-logger')
+  , json = require('koa-json')
+  , views = require('koa-views')
+  , onerror = require('koa-onerror');
 
-var app = express()
+
+var multer = require('koa-multer');
+
 app.use(multer({ dest: './uploads/'}))
+
 ```
 
 You can access the fields and files in the request object:
