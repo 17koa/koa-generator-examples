@@ -2,8 +2,10 @@
 
 主要目的是为了上传
 
+koa-v1 要是用 koa-multer-v0.0.2 对应的 multer < 1，所以本处需要指定版本安装
+
 ```shell
-$ npm install --save koa-multer
+$ npm install --save koa-multer@0.0.2
 ```
 
 Usage
@@ -19,8 +21,12 @@ app.use(multer({ dest: './uploads/'}))
 You can access the fields and files in the request object:
 
 ```javascript
-console.log(req.body)
-console.log(req.files)
+router.post('/post/formdata', function *(next) {
+  console.dir(this.req.body)
+  console.dir(this.req.files)
+
+  this.body = 'this a users response!';
+});
 ```
 
 重要提示： Multer will not process any form which is not multipart/form-data
