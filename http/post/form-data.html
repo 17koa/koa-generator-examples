@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.2.3" data-basepath="../.." data-revision="1449991208560">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.2.3" data-basepath="../.." data-revision="1450152223557">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -592,10 +592,35 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_23">
+                    <section class="normal" id="section-gitbook_97">
                     
                         <h1 id="post-with-form-data">Post with form-data</h1>
-<p>todo</p>
+<p>主要目的是为了上传</p>
+<p>koa-v1 要是用 koa-multer-v0.0.2 对应的 multer &lt; 1，所以本处需要指定版本安装</p>
+<pre><code class="lang-shell">$ npm install --save koa-multer@0.0.2
+</code></pre>
+<p>Usage</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">var</span> multer  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'multer'</span>)
+
+<span class="hljs-keyword">var</span> app = express()
+app.use(multer({ dest: <span class="hljs-string">'./uploads/'</span>}))
+</code></pre>
+<p>You can access the fields and files in the request object:</p>
+<pre><code class="lang-javascript">router.post(<span class="hljs-string">'/post/formdata'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> *<span class="hljs-params">(next)</span> {</span>
+  console.dir(<span class="hljs-keyword">this</span>.req.body)
+  console.dir(<span class="hljs-keyword">this</span>.req.files)
+
+  <span class="hljs-keyword">this</span>.body = <span class="hljs-string">'this a users response!'</span>;
+});
+</code></pre>
+<p>重要提示： Multer will not process any form which is not multipart/form-data</p>
+<p><a href="https://github.com/koa-modules/multer" target="_blank">see more</a></p>
+<p>测试</p>
+<pre><code class="lang-shell">$ npm test
+</code></pre>
+<p>使用Postman测试</p>
+<p><img src="img/post-formdata.png" alt=""></p>
 
                     
                     </section>

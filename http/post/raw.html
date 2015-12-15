@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.2.4" data-basepath="../.." data-revision="1449991208560">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.2.4" data-basepath="../.." data-revision="1450152223557">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -592,10 +592,38 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_27">
+                    <section class="normal" id="section-gitbook_101">
                     
-                        <h1 id="post-with-raw">Post with raw</h1>
-<p>todo</p>
+                        <h1 id="post-with-raw-todo-">Post with raw(todo)</h1>
+<p>To get the raw body content of a request with Content-Type: &quot;text/plain&quot; into req.rawBody you can do:</p>
+<p><a href="https://gist.github.com/tj/3750227" target="_blank">https://gist.github.com/tj/3750227</a></p>
+<p>req.rawBody已经被干掉了，现在只能用req.text</p>
+<p>下面是tj给出的代码片段</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./'</span>)
+<span class="hljs-keyword">var</span> app = express();
+
+app.use(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, next)</span>{</span>
+  <span class="hljs-keyword">if</span> (req.is(<span class="hljs-string">'text/*'</span>)) {
+    req.text = <span class="hljs-string">''</span>;
+    req.setEncoding(<span class="hljs-string">'utf8'</span>);
+    req.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span>{</span> req.text += chunk });
+    req.on(<span class="hljs-string">'end'</span>, next);
+  } <span class="hljs-keyword">else</span> {
+    next();
+  }
+});
+
+app.post(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span>{</span>
+  res.send(<span class="hljs-string">'got "'</span> + req.text + <span class="hljs-string">'"'</span>);
+});
+
+app.listen(<span class="hljs-number">3000</span>)
+</code></pre>
+<p>测试</p>
+<pre><code class="lang-shell">$ npm test
+</code></pre>
+<p>使用Postman测试</p>
+<p><img src="img/post-rawdata.png" alt=""></p>
 
                     
                     </section>

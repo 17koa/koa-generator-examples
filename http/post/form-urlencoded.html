@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.2.2" data-basepath="../.." data-revision="1449991208560">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.2.2" data-basepath="../.." data-revision="1450152223557">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -592,10 +592,33 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_24">
+                    <section class="normal" id="section-gitbook_98">
                     
                         <h1 id="post-with-x-www-form-urlencoded">Post with x-www-form-urlencoded</h1>
-<p>todo</p>
+<p>see <code>public/post.html</code></p>
+<pre><code>&lt;script&gt;
+$(function(){
+    $.ajaxSetup({
+      contentType: &quot;application/x-www-form-urlencoded; charset=utf-8&quot;
+    });
+
+    $.post(&quot;/users/post&quot;, { name: &quot;i5a6&quot;, time: &quot;2pm&quot; },
+       function(data){
+         console.log(data);
+       }, &quot;json&quot;);
+
+});
+&lt;/script&gt;
+</code></pre><p>in <code>routes/users.js</code></p>
+<pre><code>router.post(&#39;/post&#39;, function(req, res) {
+  // res.send(&#39;respond with a resource&#39;);
+    res.json(req.body);
+});
+</code></pre><p>测试</p>
+<pre><code class="lang-shell">$ npm test
+</code></pre>
+<p>使用Postman测试</p>
+<p><img src="img/post-common.png" alt=""></p>
 
                     
                     </section>
