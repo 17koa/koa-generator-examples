@@ -1,4 +1,6 @@
-# koa中的异常处理，比如router中某个yield可能抛错，这种情况下要返回请求是怎么做的呀，都是直接在app on error里面处理吗
+# koa中的异常处理
+
+比如router中某个yield可能抛错，这种情况下要返回请求是怎么做的呀，都是直接在app on error里面处理吗
 
 在route里
 
