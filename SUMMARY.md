@@ -34,4 +34,5 @@
 * [FAQ](faq/index.md)
    * [如何发布本书到git pages](faq/gitbook.md)
    * [如何知道require模块的用法](faq/require_module.md)
+   * [koa中的异常处理](faq/catch_error.md)
 
