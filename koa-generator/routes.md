@@ -50,6 +50,6 @@ router.get('/', async function (ctx, next) {
   await ctx.render('index', {
     title: 'Hello World Koa!'
   });
-})
+});
 module.exports = router;
 ```
