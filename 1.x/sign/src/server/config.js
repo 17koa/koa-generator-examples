@@ -10,7 +10,6 @@ const baseConfig = {
     root: path.normalize(__dirname + '/../..'),
     env: process.env.NODE_ENV,
     secret: process.env.SECRET || 'my&&&&&&secret!',
-    pass: process.env.PASS || 'pass'
   }
 };
 

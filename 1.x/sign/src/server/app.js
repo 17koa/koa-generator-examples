@@ -9,7 +9,7 @@ const koaInit = require('./config/koa');
 app.init = co.wrap(function*() {
   yield dbInit();
   koaInit(app);
-  app.server = app.listen(config.app.port); // 扩展 sever 的方法
+  app.server = app.listen(config.app.port); // 扩展 server 的方法
 });
 
 if (!module.parent) {

@@ -1,6 +1,5 @@
 'use strict';
 
-
 const mongoose = require('mongoose');
 const co = require('co');
 const tool = require('../common/tool');
@@ -11,15 +10,11 @@ const schema = new Schema({
     type: String,
     unique: true
   },
-  name: {
-    type: String,
-    unique: true
-  },
   nick: String,
   password: String,
   role: {
     type: Number,
-    default: 0
+    default: 1 // 管理员 >=50
   },
   createdAt: {
     type: Date,
@@ -29,7 +24,7 @@ const schema = new Schema({
 
 schema.pre('save', function(next) {
   if (!this.isModified('password')) {
-    return next();
+    next();
   }
   co.wrap(function*() {
     let pwdHash = yield tool.bhash(this.password, 10);
@@ -44,9 +39,9 @@ schema.methods = {
 };
 
 schema.statics = {
-  passwordMatches: function*(loginname, pwd) {
+  login: function* (email, pwd) {
     let user = yield this.findOne({
-      name: name
+      email: email
     }).exec();
     if (!user) {
       throw new Error('user no found');
@@ -54,12 +49,18 @@ schema.statics = {
     if (!(yield user.comparePassword(pwd))) {
       throw new Error('password does not match');
     }
+    user = user.toJSON();
+    delete user.password;
     return user;
   },
 
   findAll: function() {
     return this.find().exec();
   },
+
+  findProfile: function(id) {
+    return this.findOne({_id: id}).select('-password').exec();
+  }
 };
 
 module.exports = mongoose.model('User', schema);
