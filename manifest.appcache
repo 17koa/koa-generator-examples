@@ -1,20 +1,20 @@
 CACHE MANIFEST
-# Revision 1450181462111
+# Revision 1450577846723
 
 CACHE:
-db/index.html
-db/mongo/index.html
-db/mysql/index.html
-index.html
+deploy/index.html
 async/async_await/index.html
+index.html
+async/generator_co/generator.html
 async/generator_co/co.html
 async/generator_co/index.html
-async/generator_co/generator.html
 async/index.html
 async/promise_with_bluebird/index.html
 basic/README.html
 basic/ctx.html
-deploy/index.html
+db/index.html
+db/mongo/index.html
+db/mysql/index.html
 faq/catch_error.html
 faq/gitbook.html
 faq/index.html
@@ -30,9 +30,19 @@ http/post/params.html
 http/post/raw.html
 koa-generator/README.html
 koa-generator/change_views.html
-koa-generator/install.html
 koa-generator/create_project.html
+koa-generator/install.html
 koa-generator/routes.html
+node4/README.html
+node4/arrow_functions.html
+node4/block_scoping.html
+node4/classes.html
+node4/collections.html
+node4/generators.html
+node4/promises.html
+node4/symbols.html
+node4/template_strings.html
+node4/typed_arrays.html
 practice/index.html
 test/index.html
 test/mocha/index.html

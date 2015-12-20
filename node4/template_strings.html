@@ -1,0 +1,754 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>template strings | 一起学koa</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="base-n">
+    
+    
+    <link rel="next" href="../node4/promises.html" />
+    
+    
+    <link rel="prev" href="../node4/block_scoping.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="1.7" data-basepath=".." data-revision="1450577846723">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/base-n/koa-generator-examples" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/base-n/koa-generator-examples/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/base-n/koa-generator-examples/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >一起学koa</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/base-n" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/base-n/koa-generator-examples/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/base-n/koa-generator-examples/edit/master/node4/template_strings.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="node4/README.html">
+            
+            <a href="../node4/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Nodejs 4.x新特性
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="node4/classes.html">
+            
+            <a href="../node4/classes.html">
+                <i class="fa fa-check"></i> <b>1.1.</b> classes
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="node4/typed_arrays.html">
+            
+            <a href="../node4/typed_arrays.html">
+                <i class="fa fa-check"></i> <b>1.2.</b> typed arrays
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="node4/generators.html">
+            
+            <a href="../node4/generators.html">
+                <i class="fa fa-check"></i> <b>1.3.</b> generators
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="node4/collections.html">
+            
+            <a href="../node4/collections.html">
+                <i class="fa fa-check"></i> <b>1.4.</b> collections
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="node4/arrow_functions.html">
+            
+            <a href="../node4/arrow_functions.html">
+                <i class="fa fa-check"></i> <b>1.5.</b> arrow functions
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="node4/block_scoping.html">
+            
+            <a href="../node4/block_scoping.html">
+                <i class="fa fa-check"></i> <b>1.6.</b> block scoping
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="node4/template_strings.html">
+            
+            <a href="../node4/template_strings.html">
+                <i class="fa fa-check"></i> <b>1.7.</b> template strings
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="node4/promises.html">
+            
+            <a href="../node4/promises.html">
+                <i class="fa fa-check"></i> <b>1.8.</b> promises
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="node4/symbols.html">
+            
+            <a href="../node4/symbols.html">
+                <i class="fa fa-check"></i> <b>1.9.</b> symbols
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="basic/README.html">
+            
+            <a href="../basic/README.html">
+                <i class="fa fa-check"></i> <b>2.</b> Koa基础
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="basic/ctx.html">
+            
+            <a href="../basic/ctx.html">
+                <i class="fa fa-check"></i> <b>2.1.</b> 上下文
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="koa-generator/README.html">
+            
+            <a href="../koa-generator/README.html">
+                <i class="fa fa-check"></i> <b>3.</b> koa-generator
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="koa-generator/install.html">
+            
+            <a href="../koa-generator/install.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> 安装
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="koa-generator/create_project.html">
+            
+            <a href="../koa-generator/create_project.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> 创建项目
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="koa-generator/change_views.html">
+            
+            <a href="../koa-generator/change_views.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> 更改视图模板引擎
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="koa-generator/routes.html">
+            
+            <a href="../koa-generator/routes.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Routes
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="http/README.html">
+            
+            <a href="../http/README.html">
+                <i class="fa fa-check"></i> <b>4.</b> HTTP
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="http/get/index.html">
+            
+            <a href="../http/get/index.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> Get
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="http/get/query.html">
+            
+            <a href="../http/get/query.html">
+                <i class="fa fa-check"></i> <b>4.1.1.</b> 如何获取query参数
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="http/get/params.html">
+            
+            <a href="../http/get/params.html">
+                <i class="fa fa-check"></i> <b>4.1.2.</b> 如何获取params
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="http/post/index.html">
+            
+            <a href="../http/post/index.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> Post
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="http/post/params.html">
+            
+            <a href="../http/post/params.html">
+                <i class="fa fa-check"></i> <b>4.2.1.</b> 从post获取参数
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="http/post/form-urlencoded.html">
+            
+            <a href="../http/post/form-urlencoded.html">
+                <i class="fa fa-check"></i> <b>4.2.2.</b> 标准表单(Post with x-www-form-urlencoded)
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="http/post/form-data.html">
+            
+            <a href="../http/post/form-data.html">
+                <i class="fa fa-check"></i> <b>4.2.3.</b> 文件上传(Post with form-data)
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="http/post/raw.html">
+            
+            <a href="../http/post/raw.html">
+                <i class="fa fa-check"></i> <b>4.2.4.</b> Post with raw
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="db/index.html">
+            
+            <a href="../db/index.html">
+                <i class="fa fa-check"></i> <b>5.</b> 数据库
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="db/mysql/index.html">
+            
+            <a href="../db/mysql/index.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> MySQL
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="db/mongo/index.html">
+            
+            <a href="../db/mongo/index.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> Mongo
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="async/index.html">
+            
+            <a href="../async/index.html">
+                <i class="fa fa-check"></i> <b>6.</b> 流程控制
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="async/generator_co/index.html">
+            
+            <a href="../async/generator_co/index.html">
+                <i class="fa fa-check"></i> <b>6.1.</b> generator/co
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="async/generator_co/generator.html">
+            
+            <a href="../async/generator_co/generator.html">
+                <i class="fa fa-check"></i> <b>6.1.1.</b> es6的generator是什么？
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="async/generator_co/co.html">
+            
+            <a href="../async/generator_co/co.html">
+                <i class="fa fa-check"></i> <b>6.1.2.</b> co = generator + promise
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="async/async_await/index.html">
+            
+            <a href="../async/async_await/index.html">
+                <i class="fa fa-check"></i> <b>6.2.</b> async/await
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="async/promise_with_bluebird/index.html">
+            
+            <a href="../async/promise_with_bluebird/index.html">
+                <i class="fa fa-check"></i> <b>6.3.</b> promise with bluebird
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="test/index.html">
+            
+            <a href="../test/index.html">
+                <i class="fa fa-check"></i> <b>7.</b> 测试
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="test/mocha/index.html">
+            
+            <a href="../test/mocha/index.html">
+                <i class="fa fa-check"></i> <b>7.1.</b> Mocha
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="test/supertest/index.html">
+            
+            <a href="../test/supertest/index.html">
+                <i class="fa fa-check"></i> <b>7.2.</b> Supertest
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="deploy/index.html">
+            
+            <a href="../deploy/index.html">
+                <i class="fa fa-check"></i> <b>8.</b> 部署
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="practice/index.html">
+            
+            <a href="../practice/index.html">
+                <i class="fa fa-check"></i> <b>9.</b> 最佳实践
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="faq/index.html">
+            
+            <a href="../faq/index.html">
+                <i class="fa fa-check"></i> <b>10.</b> FAQ
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="faq/gitbook.html">
+            
+            <a href="../faq/gitbook.html">
+                <i class="fa fa-check"></i> <b>10.1.</b> 如何发布本书到git pages
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="faq/require_module.html">
+            
+            <a href="../faq/require_module.html">
+                <i class="fa fa-check"></i> <b>10.2.</b> 如何知道require模块的用法
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="faq/catch_error.html">
+            
+            <a href="../faq/catch_error.html">
+                <i class="fa fa-check"></i> <b>10.3.</b> koa中的异常处理
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 18.181818181818183%;min-width: 15.909090909090908%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../node4/README.html" title="Nodejs 4.x新特性" class="chapter done new-chapter" data-progress="1" style="left: 2.272727272727273%;"></a>
+    
+        <a href="../node4/classes.html" title="classes" class="chapter done " data-progress="1.1" style="left: 4.545454545454546%;"></a>
+    
+        <a href="../node4/typed_arrays.html" title="typed arrays" class="chapter done " data-progress="1.2" style="left: 6.818181818181818%;"></a>
+    
+        <a href="../node4/generators.html" title="generators" class="chapter done " data-progress="1.3" style="left: 9.090909090909092%;"></a>
+    
+        <a href="../node4/collections.html" title="collections" class="chapter done " data-progress="1.4" style="left: 11.363636363636363%;"></a>
+    
+        <a href="../node4/arrow_functions.html" title="arrow functions" class="chapter done " data-progress="1.5" style="left: 13.636363636363637%;"></a>
+    
+        <a href="../node4/block_scoping.html" title="block scoping" class="chapter done " data-progress="1.6" style="left: 15.909090909090908%;"></a>
+    
+        <a href="../node4/template_strings.html" title="template strings" class="chapter done " data-progress="1.7" style="left: 18.181818181818183%;"></a>
+    
+        <a href="../node4/promises.html" title="promises" class="chapter  " data-progress="1.8" style="left: 20.454545454545453%;"></a>
+    
+        <a href="../node4/symbols.html" title="symbols" class="chapter  " data-progress="1.9" style="left: 22.727272727272727%;"></a>
+    
+        <a href="../basic/README.html" title="Koa基础" class="chapter  new-chapter" data-progress="2" style="left: 25%;"></a>
+    
+        <a href="../basic/ctx.html" title="上下文" class="chapter  " data-progress="2.1" style="left: 27.272727272727273%;"></a>
+    
+        <a href="../koa-generator/README.html" title="koa-generator" class="chapter  new-chapter" data-progress="3" style="left: 29.545454545454547%;"></a>
+    
+        <a href="../koa-generator/install.html" title="安装" class="chapter  " data-progress="3.1" style="left: 31.818181818181817%;"></a>
+    
+        <a href="../koa-generator/create_project.html" title="创建项目" class="chapter  " data-progress="3.2" style="left: 34.09090909090909%;"></a>
+    
+        <a href="../koa-generator/change_views.html" title="更改视图模板引擎" class="chapter  " data-progress="3.3" style="left: 36.36363636363637%;"></a>
+    
+        <a href="../koa-generator/routes.html" title="Routes" class="chapter  " data-progress="3.4" style="left: 38.63636363636363%;"></a>
+    
+        <a href="../http/README.html" title="HTTP" class="chapter  new-chapter" data-progress="4" style="left: 40.90909090909091%;"></a>
+    
+        <a href="../http/get/index.html" title="Get" class="chapter  " data-progress="4.1" style="left: 43.18181818181818%;"></a>
+    
+        <a href="../http/get/query.html" title="如何获取query参数" class="chapter  " data-progress="4.1.1" style="left: 45.45454545454545%;"></a>
+    
+        <a href="../http/get/params.html" title="如何获取params" class="chapter  " data-progress="4.1.2" style="left: 47.72727272727273%;"></a>
+    
+        <a href="../http/post/index.html" title="Post" class="chapter  " data-progress="4.2" style="left: 50%;"></a>
+    
+        <a href="../http/post/params.html" title="从post获取参数" class="chapter  " data-progress="4.2.1" style="left: 52.27272727272727%;"></a>
+    
+        <a href="../http/post/form-urlencoded.html" title="标准表单(Post with x-www-form-urlencoded)" class="chapter  " data-progress="4.2.2" style="left: 54.54545454545455%;"></a>
+    
+        <a href="../http/post/form-data.html" title="文件上传(Post with form-data)" class="chapter  " data-progress="4.2.3" style="left: 56.81818181818182%;"></a>
+    
+        <a href="../http/post/raw.html" title="Post with raw" class="chapter  " data-progress="4.2.4" style="left: 59.09090909090909%;"></a>
+    
+        <a href="../db/index.html" title="数据库" class="chapter  new-chapter" data-progress="5" style="left: 61.36363636363637%;"></a>
+    
+        <a href="../db/mysql/index.html" title="MySQL" class="chapter  " data-progress="5.1" style="left: 63.63636363636363%;"></a>
+    
+        <a href="../db/mongo/index.html" title="Mongo" class="chapter  " data-progress="5.2" style="left: 65.9090909090909%;"></a>
+    
+        <a href="../async/index.html" title="流程控制" class="chapter  new-chapter" data-progress="6" style="left: 68.18181818181819%;"></a>
+    
+        <a href="../async/generator_co/index.html" title="generator/co" class="chapter  " data-progress="6.1" style="left: 70.45454545454545%;"></a>
+    
+        <a href="../async/generator_co/generator.html" title="es6的generator是什么？" class="chapter  " data-progress="6.1.1" style="left: 72.72727272727273%;"></a>
+    
+        <a href="../async/generator_co/co.html" title="co = generator + promise" class="chapter  " data-progress="6.1.2" style="left: 75%;"></a>
+    
+        <a href="../async/async_await/index.html" title="async/await" class="chapter  " data-progress="6.2" style="left: 77.27272727272727%;"></a>
+    
+        <a href="../async/promise_with_bluebird/index.html" title="promise with bluebird" class="chapter  " data-progress="6.3" style="left: 79.54545454545455%;"></a>
+    
+        <a href="../test/index.html" title="测试" class="chapter  new-chapter" data-progress="7" style="left: 81.81818181818181%;"></a>
+    
+        <a href="../test/mocha/index.html" title="Mocha" class="chapter  " data-progress="7.1" style="left: 84.0909090909091%;"></a>
+    
+        <a href="../test/supertest/index.html" title="Supertest" class="chapter  " data-progress="7.2" style="left: 86.36363636363636%;"></a>
+    
+        <a href="../deploy/index.html" title="部署" class="chapter  new-chapter" data-progress="8" style="left: 88.63636363636364%;"></a>
+    
+        <a href="../practice/index.html" title="最佳实践" class="chapter  new-chapter" data-progress="9" style="left: 90.9090909090909%;"></a>
+    
+        <a href="../faq/index.html" title="FAQ" class="chapter  " data-progress="10" style="left: 93.18181818181819%;"></a>
+    
+        <a href="../faq/gitbook.html" title="如何发布本书到git pages" class="chapter  " data-progress="10.1" style="left: 95.45454545454545%;"></a>
+    
+        <a href="../faq/require_module.html" title="如何知道require模块的用法" class="chapter  " data-progress="10.2" style="left: 97.72727272727273%;"></a>
+    
+        <a href="../faq/catch_error.html" title="koa中的异常处理" class="chapter  " data-progress="10.3" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_87">
+                    
+                        <h1 id="template-strings">template strings</h1>
+<p>模板字串</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../node4/block_scoping.html" class="navigation navigation-prev " aria-label="Previous page: block scoping"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../node4/promises.html" class="navigation navigation-next " aria-label="Next page: promises"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
