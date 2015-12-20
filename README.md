@@ -1,5 +1,9 @@
 # 一起学koa
 
+koa是下一代基于nodejs的modern web framework，会用到很多es高级特性，可以说无论从es学习还是web开发都有必要学习。
+
+鉴于目前学习资料不多，故有此书
+
 ## 宗旨
 
 大家一起学习koa
