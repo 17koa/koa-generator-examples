@@ -46,10 +46,10 @@ router.get('/2', function *(next) {
 ```javascript
 var router = require('koa-router')();
 
-router.get('/', function (ctx, next) {
-  ctx.render('index', {
+router.get('/', async function (ctx, next) {
+  await ctx.render('index', {
     title: 'Hello World Koa!'
   });
-})
+});
 module.exports = router;
 ```
