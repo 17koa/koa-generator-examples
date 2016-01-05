@@ -30,5 +30,19 @@ console.log(a[s1]); //this will print "Hello World!"
 ```
 **需要注意的是，当使用Symbol作为属性名的时候，一定要用[]来进行引用，如果你用.（点号）进行引用，那么产生的属性名实际是一个字符串，和Symbol对象本身没一点关系**
 ### 遍历使用Symbol来定义的属性  
+因为Symbol对象不是一个字符串，所以原先的**Object.getOwnPropertyNames()**方法并不会返回它们，你需要使用专门的**Object.getOwnPropertySymbols()**方法来访问它们。  
+```javascript  
+var a = {};
+var s1 = Symbol("test");
+var s2 = Symbol("testfunc");
+a[s1] = "hello world!";
+a[s2] = function(){
+    console.log("Test function");
+};
+//below code will return []
+console.log(Object.getOwnPropertyNames(a));
+//below code will return [Symbol(test), Symbol(testfunc)]
+console.log(Object.getOwnPropertySymbols(a));
+```
 ## 引用实例2 --- 消除魔术字符串  
 ## ES6内置的Symbol实例
