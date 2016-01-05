@@ -84,4 +84,13 @@ function getHello(country){
 console.log(getHello(COUNTRY_CODE.es));
 console.log(getHello(COUNTRY_CODE.ch));
 ```
-## ES6内置的Symbol实例
+## ES6内置的Symbol实例  
+### Symbol.hasInstance  
+### Symbol.isConcatSpreadable
+### Symbol.replace  
+### Symbol.search  
+### Symbol.split  
+### Symbol.iterator  
+### Symbol.toPrimitive  
+### Symbol.toStringTag  
+### Symbol.unscopables
