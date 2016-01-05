@@ -85,12 +85,25 @@ console.log(getHello(COUNTRY_CODE.es));
 console.log(getHello(COUNTRY_CODE.ch));
 ```
 ## ES6内置的Symbol实例  
-### Symbol.hasInstance  
-### Symbol.isConcatSpreadable
-### Symbol.replace  
-### Symbol.search  
-### Symbol.split  
+### Symbol.hasInstance 
+对对象使用instanceof调用的时候，在ES6内部调用的是obj[Symbol.hasInstance]方法  
+### Symbol.isConcatSpreadable  
+决定调用Array.prototype.contact方法的时候，对象是否可以展开  
+```javascript  
+var arr1 = [1, 2];
+[3, 4].concat(arr1); // return [3, 4, 1, 2]
+
+arr1[Symbol.isConcatSpreadable] = false;
+[3, 4].concat(arr1); // return [3, 4, [1, 2]]
+```
+### 和字符串操作相关的Symbol
+* Symbol.replace指向一个方法，将被String.prototype.replace调用
+* Symbol.search指向一个方法，将被String.prototype.search调用
+* Symbol.split指向一个方法，将被String.prototype.split调用
+* Symbol.match指向一个方法，将被str.match(object)调用
+* Symbol.toStringTag只想一个方法，将被Object.prototype.toString调用
 ### Symbol.iterator  
+指向对象的默认遍历器
 ### Symbol.toPrimitive  
-### Symbol.toStringTag  
+指向一个方法，将对象转换成一个primitive类型的值
 ### Symbol.unscopables
