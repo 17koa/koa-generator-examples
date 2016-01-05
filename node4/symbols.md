@@ -45,4 +45,43 @@ console.log(Object.getOwnPropertyNames(a));
 console.log(Object.getOwnPropertySymbols(a));
 ```
 ## 引用实例2 --- 消除魔术字符串  
+魔术字符串指的是在代码中反复出现的相同的字符串，对一个结构良好的代码来说，应该尽量消除魔术字符串的存在，而使用常量作为替代。下面就让我们来看一个具体的例子来了解如何使用Symbol来消除代码中的魔术字符串。 在代码中我们尝试根据输入信息的不同返回不同的Hello
+```javascript  
+# 引入Symbol前的代码
+# 在这个代码中es, ch就是魔术字符串
+# 当你在调用这个函数的时候，必须确保输入的参数是一个有效的魔术值
+function getHello(country){
+    switch(country){
+        case "es":
+            return "Holla";
+        case "ch":
+            return "你好";
+        default:
+            return "Hello";
+    }
+}
+console.log(getHello("es"));
+console.log(getHello("ch"));
+```  
+```javascript  
+# 引入Symbol之后的代码
+# 在这个代码中es, ch不再是一个具体的字符串
+# 因此不管在COUNTRY_CODE中如何修改es, ch的定义，调用方的代码都不需要修改
+const COUNTRY_CODE= {
+    es: Symbol(),
+    ch: Symbol()
+}
+function getHello(country){
+    switch(country){
+        case COUNTRY_CODE.es:
+            return "Holla";
+        case COUNTRY_CODE.ch:
+            return "你好"
+        default:
+            return "Hello"
+    }
+}
+console.log(getHello(COUNTRY_CODE.es));
+console.log(getHello(COUNTRY_CODE.ch));
+```
 ## ES6内置的Symbol实例
