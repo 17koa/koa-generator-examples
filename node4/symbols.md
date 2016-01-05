@@ -105,5 +105,26 @@ arr1[Symbol.isConcatSpreadable] = false;
 ### Symbol.iterator  
 指向对象的默认遍历器
 ### Symbol.toPrimitive  
-指向一个方法，将对象转换成一个primitive类型的值
-### Symbol.unscopables
+指向一个方法，将对象转换成一个primitive类型的值。这个方法将接受一个hint参数，表示要转换成哪种primitive类型，具体的value包括"Number", "String", "Default"
+### Symbol.unscopables  
+指向一个属性，这个属性返回一个JSON对象，表示该对象的哪些属性将被with环境排除在外，下面是一个具体的例子。  
+```javascript  
+# when Test has no Symbol.unscopables
+class Test{
+  saySomething() { return "abc"; }
+}
+var saySomething = function() { return "123"; }
+with(Test.prototype){
+  saySomething(); // return "abc"
+}
+# when Test has Symbole.unscopables
+class Test{
+  saySomething() { return "abc"; }
+  get [Symbol.unscopables] {
+      return {saySomething: true};
+  }
+}
+with(Test.prototype){
+  saySomething(); // now return "123"
+}
+```
