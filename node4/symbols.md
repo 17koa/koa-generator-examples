@@ -19,9 +19,16 @@ s2 = Symbol.for("test")
 console.log(s1 == s2) //will return true
 console.log(s1 == s3) // will return false，因为s3是通过Symbol调用产生的
 ```
-## 引用实例1 --- 类的属性  
-
+在我们了解了ES6为什么需要引入Symbol对象之后，让我们来看一些具体的例子来增加一些对Symbol对象的感性的认识。
+## 引用实例1 --- 对象的属性  
 ### 使用Symbol来定义类的属性  
+```javascript  
+var a = {};
+var s1 = Symbol("test");
+a[s1] = "hello world!";
+console.log(a[s1]); //this will print "Hello World!"
+```
+**需要注意的是，当使用Symbol作为属性名的时候，一定要用[]来进行引用，如果你用.（点号）进行引用，那么产生的属性名实际是一个字符串，和Symbol对象本身没一点关系**
 ### 遍历使用Symbol来定义的属性  
 ## 引用实例2 --- 消除魔术字符串  
 ## ES6内置的Symbol实例
