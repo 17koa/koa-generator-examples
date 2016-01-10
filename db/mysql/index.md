@@ -1,5 +1,6 @@
 ##封装思路
 koa依赖co，其中间件对非阻塞异步代码的要求必须是Yieldables列表中的形式，而mysql库是回调函数的形式。因此，我们需要进行封装，使其接口符合要求。
+
 目前我找到了四种方法，前三种使用开源库，第四种自己动手，将express下的dbHelper层封装成co最新支持的Promise形式。
 ##实现方法一（co-mysql）
 co-mysql和mysql-co实现了对mysql或mysql2的封装转化。这两个库的思路差不多，mysql-co封装度更高，并使用速度更快的mysql2；而co-mysql更简单，只是将mysql.query封装成Promise形式。下面是基于co-mysql的示例代码：
@@ -47,6 +48,7 @@ var rows = yield db.getById('tableName', {id:1});
 ```
 ##实现方法四（直接方法）
 直接改造原来express下的回调方式代码为Promise形式，代码及说明如下：
+
 dbHelper.js
 ```
 var options = { /* 数据库连接字串 */ };
@@ -110,7 +112,7 @@ var rows = yield db.getById('tableName', {id:1});
 ...
 ```
 ##代码
-请参考这个项目中的数据库操作部分，项目处于持续开发中，数据库示例部分取自该项目。
+示例部分代码取自该项目：
 ```
 https://github.com/zhoutk/koadmin.git
 ```
