@@ -20,7 +20,7 @@ func.next();//return { value: '', done: true }
 * 每次调用**next**方法，Generator函数将执行到下一个yield语句或者是return语句。下面我们就对上面代码的每次next调用进行一个详细的解释  
   * 第一次调用next方法的时候，函数执行到```yield "Hello"```语句停了下来，并且返回了Hello这个value，随同value返回的done属性表明Generator函数的运行还没有结束  
   * 第二次调用next方法的时候，函数执行到```return "World!"```语句停了下来，并且返回了World!这个value，随同value返回的done属性表明Generator函数的运行已经结束
-  * 第三次调用next方法的时候，由于Generator函数执行已经结束了，所以函数调用立即返回，done属性表明Generator函数已经结束运行，value是空的
+  * 第三次调用next方法的时候，由于Generator函数执行已经结束了，所以函数调用立即返回，done属性表明Generator函数已经结束运行，value是空的，因为这次调用并没有执行任何语句
 ### yield语句
 ## next方法参数
 ## for...of循环  
