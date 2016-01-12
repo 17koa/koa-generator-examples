@@ -54,3 +54,15 @@ for (let v of loopThroughInt()){
 }
 ```  
 ## yield*  
+如果在Generator函数内部需要调用另外一个Generator函数，那么对目标函数的调用就需要使用yield*，以下是一个简单的例子  
+```javascript  
+function* objects(){
+    yield "cat";
+    yield "dog";
+    yield "duck";
+}
+function* say(){
+    yield* objects();
+    yield " say hello world!";
+}
+```  
