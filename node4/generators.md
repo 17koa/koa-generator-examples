@@ -41,15 +41,16 @@ g.next() // { value: 1, done: false }
 g.next(true) // { value: 0, done: false }
 ```   
 ## for...of循环  
-在上面的所有例子中，如果我们要让Generator函数执行下一步，就必须调用一次next方法，那么有没有什么方法让Generator函数自动执行每一步而不需要代码干预呢?答案是肯定的，我们可以使用for...of循环来实现，下面是一个具体的例子  
+在上面的所有例子中，如果我们要让Generator函数执行下一步，就必须调用一次next方法，那么有没有什么方法让Generator函数自动执行每一步而不需要代码干预呢?答案是肯定的，我们可以使用for...of循环来实现，下面是一个具体的例子。在下面的例子中，for..of loop将遍历所有的yield语句（**记住只是遍历yield语句，因此return语句的返回值是不会输出的**）
 ```javascript  
 function* loopThroughInt(){
     for (let index = 0; index < 100; index++){
         yield index;
     }
+	return 100;
 }
-for (let v of loopThrougInt()){
-    console.log(v);
+for (let v of loopThroughInt()){
+    console.log(v); //output 0...99
 }
 ```  
-## yield*
+## yield*  
