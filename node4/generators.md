@@ -21,7 +21,25 @@ func.next();//return { value: '', done: true }
   * 第一次调用next方法的时候，函数执行到```yield "Hello"```语句停了下来，并且返回了Hello这个value，随同value返回的done属性表明Generator函数的运行还没有结束  
   * 第二次调用next方法的时候，函数执行到```return "World!"```语句停了下来，并且返回了World!这个value，随同value返回的done属性表明Generator函数的运行已经结束
   * 第三次调用next方法的时候，由于Generator函数执行已经结束了，所以函数调用立即返回，done属性表明Generator函数已经结束运行，value是空的，因为这次调用并没有执行任何语句  
-### yield语句
+
+### yield语句  
+yield语句在Generator函数的执行过程中扮演了中断/暂停执行函数的功能。每次你调用next()方法的时候，Generator函数都将执行到下一个yield语句或者return语句，当执行到yield语句的时候，如果yield语句跟着一个表达式，那么表达式的值将作为value被返回。  
 ## next方法参数
+由于yield语句只是抛出value, 但是本身并不返回value，如果你要yield语句有返回值，就要在调用next方法的时候，传入一个参数，这个参数就将作为上一个yield语句的返回值，下面是一个例子  
+```javascript  
+function* f() {
+  for(var i=0; true; i++) {
+    var reset = yield i;
+    if(reset) { i = -1; }
+  }
+}
+
+var g = f();
+
+g.next() // { value: 0, done: false }
+g.next() // { value: 1, done: false }
+g.next(true) // { value: 0, done: false }
+```   
 ## for...of循环  
+
 ## yield*
