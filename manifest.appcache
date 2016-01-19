@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Revision 1453216398352
+# Revision 1453216543743
 
 CACHE:
 deploy/index.html
@@ -28,8 +28,8 @@ http/post/form-urlencoded.html
 http/post/index.html
 http/post/params.html
 http/post/raw.html
-koa-generator/README.html
 koa-generator/change_views.html
+koa-generator/README.html
 koa-generator/create_project.html
 koa-generator/routes.html
 koa-generator/install.html
