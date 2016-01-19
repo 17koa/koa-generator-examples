@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="1.9" data-basepath=".." data-revision="1450577846723">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="1.9" data-basepath=".." data-revision="1453216398351">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -708,10 +708,130 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_86">
+                    <section class="normal" id="section-gitbook_670">
                     
-                        <h1 id="symbols">symbols</h1>
-<p>唯一的、不可修改的数据</p>
+                        <h2 id="-">概述</h2>
+<p>在ES5中，所有的属性名使用的都是标准的字符串，如果你想修改一个别人提供的对象，并且为这个对象增加一个方法的时候，你就要非常小心了，因为你可能选择了一个已经存在的方法的名字。因此在ES6中引入了Symbol这个类型，当你使用Symbol类型来定义类的属性或者方法名的时候，ES6将保证这个属性和方法名称是全局唯一的。</p>
+<h3 id="-symbol-">创建Symbol实例</h3>
+<pre><code class="lang-javascript"># 第一种方法直接使用Symbol构造函数
+<span class="hljs-keyword">var</span> s1 = Symbol();
+# 为创建的Symbol对象指定一个名称
+<span class="hljs-keyword">var</span> s2 = Symbol(<span class="hljs-string">"test"</span>);
+# 使用这种方法，每次创建出来的Symbol对象都是不一样的
+# console.log(s2, s3)将返回<span class="hljs-literal">false</span>
+<span class="hljs-keyword">var</span> s3 = Symbol(<span class="hljs-string">"test"</span>);
+
+# 第二种方法，使用Symbol.for方法来创建Symbol实例
+# 使用Symbol.for方法来创建一个Symbol实例的时候，
+# 系统首先会在一个全局的注册表中查找是否有相同Key名称的Symbol被创建了，如果找到，就返回已经存在的对象
+# 否则，将创建一个全新的对象
+s1 = Symbol.for(<span class="hljs-string">"test"</span>)
+s2 = Symbol.for(<span class="hljs-string">"test"</span>)
+console.log(s1 == s2) <span class="hljs-comment">//will return true</span>
+console.log(s1 == s3) <span class="hljs-comment">// will return false，因为s3是通过Symbol调用产生的</span>
+</code></pre>
+<p>在我们了解了ES6为什么需要引入Symbol对象之后，让我们来看一些具体的例子来增加一些对Symbol对象的感性的认识。</p>
+<h2 id="-1-">引用实例1 --- 对象的属性</h2>
+<h3 id="-symbol-">使用Symbol来定义类的属性</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> a = {};
+<span class="hljs-keyword">var</span> s1 = Symbol(<span class="hljs-string">"test"</span>);
+a[s1] = <span class="hljs-string">"hello world!"</span>;
+console.log(a[s1]); <span class="hljs-comment">//this will print "Hello World!"</span>
+</code></pre>
+<p><strong>需要注意的是，当使用Symbol作为属性名的时候，一定要用[]来进行引用，如果你用.（点号）进行引用，那么产生的属性名实际是一个字符串，和Symbol对象本身没一点关系</strong></p>
+<h3 id="-symbol-">遍历使用Symbol来定义的属性</h3>
+<p>因为Symbol对象不是一个字符串，所以原先的<strong>Object.getOwnPropertyNames()</strong>方法并不会返回它们，你需要使用专门的<strong>Object.getOwnPropertySymbols()</strong>方法来访问它们。  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> a = {};
+<span class="hljs-keyword">var</span> s1 = Symbol(<span class="hljs-string">"test"</span>);
+<span class="hljs-keyword">var</span> s2 = Symbol(<span class="hljs-string">"testfunc"</span>);
+a[s1] = <span class="hljs-string">"hello world!"</span>;
+a[s2] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+    console.log(<span class="hljs-string">"Test function"</span>);
+};
+<span class="hljs-comment">//below code will return []</span>
+console.log(<span class="hljs-built_in">Object</span>.getOwnPropertyNames(a));
+<span class="hljs-comment">//below code will return [Symbol(test), Symbol(testfunc)]</span>
+console.log(<span class="hljs-built_in">Object</span>.getOwnPropertySymbols(a));
+</code></pre>
+<h2 id="-2-">引用实例2 --- 消除魔术字符串</h2>
+<p>魔术字符串指的是在代码中反复出现的相同的字符串，对一个结构良好的代码来说，应该尽量消除魔术字符串的存在，而使用常量作为替代。下面就让我们来看一个具体的例子来了解如何使用Symbol来消除代码中的魔术字符串。 在代码中我们尝试根据输入信息的不同返回不同的Hello</p>
+<pre><code class="lang-javascript"># 引入Symbol前的代码
+# 在这个代码中es, ch就是魔术字符串
+# 当你在调用这个函数的时候，必须确保输入的参数是一个有效的魔术值
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getHello</span><span class="hljs-params">(country)</span>{</span>
+    <span class="hljs-keyword">switch</span>(country){
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"es"</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"Holla"</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"ch"</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"你好"</span>;
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello"</span>;
+    }
+}
+console.log(getHello(<span class="hljs-string">"es"</span>));
+console.log(getHello(<span class="hljs-string">"ch"</span>));
+</code></pre>
+<pre><code class="lang-javascript"># 引入Symbol之后的代码
+# 在这个代码中es, ch不再是一个具体的字符串
+# 因此不管在COUNTRY_CODE中如何修改es, ch的定义，调用方的代码都不需要修改
+<span class="hljs-keyword">const</span> COUNTRY_CODE= {
+    es: Symbol(),
+    ch: Symbol()
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getHello</span><span class="hljs-params">(country)</span>{</span>
+    <span class="hljs-keyword">switch</span>(country){
+        <span class="hljs-keyword">case</span> COUNTRY_CODE.es:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"Holla"</span>;
+        <span class="hljs-keyword">case</span> COUNTRY_CODE.ch:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"你好"</span>
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello"</span>
+    }
+}
+console.log(getHello(COUNTRY_CODE.es));
+console.log(getHello(COUNTRY_CODE.ch));
+</code></pre>
+<h2 id="es6-symbol-">ES6内置的Symbol实例</h2>
+<h3 id="symbol-hasinstance">Symbol.hasInstance</h3>
+<p>对对象使用instanceof调用的时候，在ES6内部调用的是obj[Symbol.hasInstance]方法  </p>
+<h3 id="symbol-isconcatspreadable">Symbol.isConcatSpreadable</h3>
+<p>决定调用Array.prototype.contact方法的时候，对象是否可以展开  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>].concat(arr1); <span class="hljs-comment">// return [3, 4, 1, 2]</span>
+
+arr1[Symbol.isConcatSpreadable] = <span class="hljs-literal">false</span>;
+[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>].concat(arr1); <span class="hljs-comment">// return [3, 4, [1, 2]]</span>
+</code></pre>
+<h3 id="-symbol">和字符串操作相关的Symbol</h3>
+<ul>
+<li>Symbol.replace指向一个方法，将被String.prototype.replace调用</li>
+<li>Symbol.search指向一个方法，将被String.prototype.search调用</li>
+<li>Symbol.split指向一个方法，将被String.prototype.split调用</li>
+<li>Symbol.match指向一个方法，将被str.match(object)调用</li>
+<li>Symbol.toStringTag只想一个方法，将被Object.prototype.toString调用<h3 id="symbol-iterator">Symbol.iterator</h3>
+指向对象的默认遍历器<h3 id="symbol-toprimitive">Symbol.toPrimitive</h3>
+指向一个方法，将对象转换成一个primitive类型的值。这个方法将接受一个hint参数，表示要转换成哪种primitive类型，具体的value包括&quot;Number&quot;, &quot;String&quot;, &quot;Default&quot;<h3 id="symbol-unscopables">Symbol.unscopables</h3>
+指向一个属性，这个属性返回一个JSON对象，表示该对象的哪些属性将被with环境排除在外，下面是一个具体的例子。  <pre><code class="lang-javascript"># when Test has no Symbol.unscopables
+<span class="hljs-keyword">class</span> Test{
+saySomething() { <span class="hljs-keyword">return</span> <span class="hljs-string">"abc"</span>; }
+}
+<span class="hljs-keyword">var</span> saySomething = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">"123"</span>; }
+<span class="hljs-keyword">with</span>(Test.prototype){
+saySomething(); <span class="hljs-comment">// return "abc"</span>
+}
+# when Test has Symbole.unscopables
+<span class="hljs-keyword">class</span> Test{
+saySomething() { <span class="hljs-keyword">return</span> <span class="hljs-string">"abc"</span>; }
+get [Symbol.unscopables] {
+    <span class="hljs-keyword">return</span> {saySomething: <span class="hljs-literal">true</span>};
+}
+}
+<span class="hljs-keyword">with</span>(Test.prototype){
+saySomething(); <span class="hljs-comment">// now return "123"</span>
+}
+</code></pre>
+</li>
+</ul>
 
                     
                     </section>

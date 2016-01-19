@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.4" data-basepath=".." data-revision="1450577846723">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="3.4" data-basepath=".." data-revision="1453216398351">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -708,7 +708,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_78">
+                    <section class="normal" id="section-gitbook_661">
                     
                         <h1 id="-">路由</h1>
 <p>写法说明</p>
@@ -743,11 +743,11 @@ router.get(<span class="hljs-string">'/2'</span>, <span class="hljs-function"><s
 <p>由于Koa 2.x支持async，故写法稍有差异</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> router = <span class="hljs-built_in">require</span>(<span class="hljs-string">'koa-router'</span>)();
 
-router.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ctx, next)</span> {</span>
-  ctx.render(<span class="hljs-string">'index'</span>, {
+router.get(<span class="hljs-string">'/'</span>, async <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ctx, next)</span> {</span>
+  await ctx.render(<span class="hljs-string">'index'</span>, {
     title: <span class="hljs-string">'Hello World Koa!'</span>
   });
-})
+});
 module.exports = router;
 </code></pre>
 

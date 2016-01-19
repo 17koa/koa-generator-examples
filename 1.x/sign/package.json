@@ -6,7 +6,8 @@
   "author": "zysam",
   "scripts": {
     "start": "node ./src/server/app.js",
-    "test": "./node_modules/.bin/mocha -t 5000 -r should -r co-mocha ./test/server/**/*.test.js"
+    "test": "./node_modules/.bin/mocha -t 5000 -r should -r co-mocha ./test/server/**/*.test.js",
+    "test-cov": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -t 5000 -r should -r co-mocha -- ./test/server/**/*.test.js"
   },
   "dependencies": {
     "bcryptjs": "^2.3.0",
@@ -21,7 +22,9 @@
   "devDependencies": {
     "co-mocha": "^1.1.2",
     "co-supertest": "0.0.10",
+    "istanbul": "0.4.1",
     "mocha": "^2.3.4",
+    "node-babel": "0.1.2",
     "should": "^8.0.1",
     "supertest": "^1.0.1"
   },

@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="base-n/koa-generator-examples" data-level="1.1" data-basepath=".." data-revision="1450577846723">
+    <div class="book" data-github="base-n/koa-generator-examples" data-level="1.1" data-basepath=".." data-revision="1453216398351">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -708,10 +708,103 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_82">
+                    <section class="normal" id="section-gitbook_666">
                     
                         <h1 id="classes">classes</h1>
-<p>各种 ‘类’，再也无需用 CoffeeScript 的语法糖写类了</p>
+<h2 id="-es6-class">在ES6中声明一个class</h2>
+<p>在ES6中，你可以使用如下的方式进行Class声明。<strong>在使用的过程中，有一点需要特别注意，一定要先使用下面的任何一种方式声明的class，才能引用class定义。</strong>这个和原先的JavaScript prototype方式声明有很大的区别，在原先的方式中，因为class是通过function来声明的，而在javascript中，function将自动变成全局可见，所以class的定义可以出现在引用之后。<br>在后面的文章中，为了保持代码的一致性和文章的清晰，我们将只适用第一种方式进行class定义</p>
+<ul>
+<li><p>使用class关键字  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">class</span> Polygon{
+}
+</code></pre>
+<p>*使用class表达式进行声明  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Polygon = <span class="hljs-keyword">class</span> {
+}
+</code></pre>
+<h2 id="-class-">定义class的构造函数</h2>
+<p>通过使用constructor关键字，你可以给class定义一个构造函数。不过在整个class的定义中，只能有一个构造函数存在.下面是一个具体的例子  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">class</span> Polygon{
+  constructor(height, width){
+      <span class="hljs-keyword">this</span>.height = height;
+      <span class="hljs-keyword">this</span>.width = width;
+  }
+}
+</code></pre>
+<h2 id="-class-">给class增加成员属性</h2>
+<p>在ES6中， 你可以通过getter和setter方法，给类增加属性。如果属性只有getter方法，那么它就是一个只读属性；如果属性同时又setter和getter方法，那么它就是一个可读写属性。请看下面的例子  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">class</span> Polygon{
+  constructor(height, width){
+      <span class="hljs-keyword">this</span>.height = height;
+      <span class="hljs-keyword">this</span>.width = width;
+  }
+  get name(){
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+  }
+  set name(somename){
+      <span class="hljs-keyword">this</span>.name = somename;
+  }
+}
+</code></pre>
+<h2 id="-class-">给class增加成员函数</h2>
+<p>这点没什么可说的，就是在类定义中增加函数定义即可，请看下面的例    </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">class</span> Polygon{
+  constructor(height, width){
+      <span class="hljs-keyword">this</span>.height = height;
+      <span class="hljs-keyword">this</span>.width = width;
+  }
+  get name(){
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+  }
+  set name(somename){
+      <span class="hljs-keyword">this</span>.name = somename;
+  }
+
+  <span class="hljs-comment">//readonly property</span>
+  get area(){
+      <span class="hljs-keyword">return</span> calcArea();
+  }
+
+  calcArea(){
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.height * <span class="hljs-keyword">this</span>.width;
+  }
+}
+</code></pre>
+<h2 id="-class-">实现class的继承</h2>
+<p>在ES6中，通过使用extends关键字，你可以使用累的继承  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">class</span> Animal{
+  constructor(name){
+      <span class="hljs-keyword">this</span>.name = name;
+  }
+
+  say(){
+      console.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">" try to say something..."</span>);
+  }
+}
+<span class="hljs-keyword">class</span> Dog extends Animal{
+  say(){
+      <span class="hljs-comment">//可以通过super关键字来调用父类的方法</span>
+      super.say();
+      console.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">" barking..."</span>);
+  }
+}
+</code></pre>
+<h2 id="-">静态成员函数</h2>
+<p>在ES6中，你可以使用static关键字来定义静态成员函数。静态成员函数的功能主要是对外提供一些辅助方法。在下面的例子中，Point类就向外提供了一个辅助方法来计算2点间的距离</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">class</span> Point(){
+  constructor(x, y){
+      <span class="hljs-keyword">this</span>.x = x;
+      <span class="hljs-keyword">this</span>.y = y;
+  }
+  static distance(a, b){
+      constant dx = a.x - b.x;
+      constant dy = a.y - b.y;
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.sqrt(dx * dx + dy * dy);
+  }
+}
+</code></pre>
+</li>
+</ul>
 
                     
                     </section>
