@@ -83,5 +83,7 @@ function hello() {
 
 hello();//will see "Hello World!"
 ```
-# Constant命令  
+# constant命令  
+constant命令和let命令唯一的区别在于constant命令定义的是一个常量。因此使用constant命令定义的常量必须在定义的同时被初始化。
 # 全局变量的属性  
+在ES6中，使用var定义的变量将是全局变量的属性（window --- 在browser中 or global--在server段代码中 )，因此可以通过window.<var_name>或者global.<var_name>来访问。但是在顶层代码中使用let / constant定义的变量/常量将不是全局变量的属性。
