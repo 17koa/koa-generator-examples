@@ -39,7 +39,7 @@ ES6中规定，如果你在一个代码区块中使用了let命令来定义变�
    console.log(hello);
 }
 ```
-# 块级作用域  
+## 块级作用域  
 ES6引入let命令的一个副作用就是引入了块级作用域。让我们来看一个具体的例子来详细分析块级作用域。  
 ```javascript
 function f() { console.log('I am outside!'); }
@@ -83,7 +83,21 @@ function hello() {
 
 hello();//will see "Hello World!"
 ```
-# constant命令  
-constant命令和let命令唯一的区别在于constant命令定义的是一个常量。因此使用constant命令定义的常量必须在定义的同时被初始化。
+# const命令  
+const命令和let命令唯一的区别在于constant命令定义的是一个常量。因此使用constant命令定义的常量必须在定义的同时被初始化。
+# 引入其他js文件中定义的变量/常量  
+在ES6中，可以使用import语句来引入其他文件中定义的常量 / 变量。  
+```javascript
+"use strict"
+//定义在constants.js的常量
+export const HELLO = "hello"
+
+//在其他js中 
+import * as constants from "./constants.js"
+console.log(constants.HELLO)
+
+import {HELLO as myHello} from "./constants.js"
+console.log(myHello)
+```
 # 全局变量的属性  
 在ES6中，使用var定义的变量将是全局变量的属性（window --- 在browser中 or global--在server段代码中 )，因此可以通过window.<var_name>或者global.<var_name>来访问。但是在顶层代码中使用let / constant定义的变量/常量将不是全局变量的属性。
