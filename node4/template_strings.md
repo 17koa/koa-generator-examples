@@ -41,4 +41,6 @@ function transform(literals,...values){
     output += literals[index];
     return output;
 }
+console.log(msg); //output The total number is  high value
+console.log(msg1);//output The total number is  low value
 ```
