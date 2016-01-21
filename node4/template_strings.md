@@ -24,10 +24,6 @@ function returnSomthingNew(param1, param2, param3){
 ```javascript
 var total = 30
 var msg = transform`The total number is ${total}`;
-
-//our sample
-//literals = ["transform`The total number is"]
-//values = [30]
 function transform(literals,...values){
     var output = "";
     for (let index = 0; index < values.length; index++){
