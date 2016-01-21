@@ -32,5 +32,4 @@ function transform(literals,...values){
     output += literals[index];
     return output;
 }
-
 ```
