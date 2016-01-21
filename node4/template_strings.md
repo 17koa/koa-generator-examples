@@ -22,8 +22,8 @@ function returnSomthingNew(param1, param2, param3){
 # 标签模板  
 模板字符串可以跟在一个函数名之后，该函数将被调用来处理跟在后面的模板字符串，这个功能被称为标签模板。被调用的函数将接收到下面的参数列表(literals,...values)。其中literals是一个数组，内容是模板字符串中不需要进行变量替换的部分，而values就是每个替换变量经过eval之后的值，下面是一个具体的例子。  
 ```javascript  
-var total = 30;
-var msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+  var total = 30;
+  var msg = passthru`The total is ${total} (${total*1.05} with tax)`;
 
 function passthru(literals, ...values) {
   var output = "";
@@ -40,5 +40,4 @@ function passthru(literals, ...values) {
 }
 
 console.log(`final string ${msg}`);
-
 ```
