@@ -21,23 +21,20 @@ function returnSomthingNew(param1, param2, param3){
 * 使用模板字符串的时候，${}中可以放入任意合法的JavaScript表达式。JavaScript对包含在${}中的内容实际上是通过eval表达式来进行的  
 # 标签模板  
 模板字符串可以跟在一个函数名之后，该函数将被调用来处理跟在后面的模板字符串，这个功能被称为标签模板。被调用的函数将接收到下面的参数列表(literals,...values)。其中literals是一个数组，内容是模板字符串中不需要进行变量替换的部分，而values就是每个替换变量经过eval之后的值，下面是一个具体的例子。  
-```javascript  
-  var total = 30;
-  var msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+```javascript
+var total = 30
+var msg = transform`The total number is ${total}`;
 
-function passthru(literals, ...values) {
-  var output = "";
-  console.log(values.length);
-  for (var index = 0; index < values.length; index++) {
-    console.log(literals[index] + "---" + values[index]);
-    var changedVal = (parseInt(values[index]) + 1);
-    console.log(changedVal);
-    output += literals[index] + changedVal.toString();
-  }
-
-  output += literals[index]
-  return output;
+//our sample
+//literals = ["transform`The total number is"]
+//values = [30]
+function transform(literals,...values){
+    var output = "";
+    for (let index = 0; index < values.length; index++){
+        output += literals[index] + values[index];
+    }
+    output += literals[index];
+    return output;
 }
 
-console.log(`final string ${msg}`);
 ```
