@@ -19,8 +19,7 @@ if (!module.parent) {
     console.log('%s is listening port: %d !!!', config.app.name, config.app.port);
   })
   .catch(function(err) {
-    console.error('connect to %s error', config.mongo.url, err.message);
-    process.exit(1);
+    console.error(err);
   });
 }
 
