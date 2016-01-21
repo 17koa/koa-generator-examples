@@ -33,14 +33,14 @@ function transform(literals,...values){
     var output = "";
     for (var index = 0; index < values.length; index++){
 	    if (parseInt(values[index]) >= 30){
-			output += literals[index] + " high value";
+			output += literals[index] + "high value";
 		}else{
-			output += literals[index] + " low value";
+			output += literals[index] + "low value";
 		}
     }
     output += literals[index];
     return output;
 }
-console.log(msg); //output The total number is  high value
-console.log(msg1);//output The total number is  low value
+console.log(msg); //output The total number is high value
+console.log(msg1);//output The total number is low value
 ```
