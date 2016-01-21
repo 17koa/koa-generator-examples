@@ -7,7 +7,8 @@ module.exports = function() {
   return new Promise(function(resolve, reject) {
     mongoose.connect(config.mongo.url, function(err) {
       if (err) {
-        return reject(err);
+        console.error('connect to %s error', config.mongo.url, err.message);
+        process.exit(1);
       }
       console.info(`mongodb connected: ${config.mongo.url} !!!`);
       return resolve();
