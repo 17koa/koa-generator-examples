@@ -31,8 +31,12 @@ var msg1 = transform`The total number is ${total}`;
 //values = [30]
 function transform(literals,...values){
     var output = "";
-    for (let index = 0; index < values.length; index++){
-        output += literals[index] + values[index];
+    for (var index = 0; index < values.length; index++){
+	    if (parseInt(values[index]) >= 30){
+			output += literals[index] + " high value";
+		}else{
+			output += literals[index] + " low value";
+		}
     }
     output += literals[index];
     return output;
