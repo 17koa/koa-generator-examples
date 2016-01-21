@@ -27,7 +27,7 @@ var msg = transform`The total number is ${total}`;
 total = 20;
 var msg1 = transform`The total number is ${total}`;
 //in our sample
-//literals = ["The total number is", ""]
+//literals = ["The total number is ", ""]
 //values = [30]
 function transform(literals,...values){
     var output = "";
