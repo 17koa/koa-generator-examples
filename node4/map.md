@@ -49,5 +49,16 @@ for (let val of sampleMap.values()){
 }
 ``` 
 
+* ```entries()```调用，```entries()```调用返回映射对象key和value的集合，接着你就可以使用```for...of```循环遍历了。  
+```javascript   
+'use strict';
+var sampleMap = new Map();
+sampleMap.set('key1', 'val1');
+sampleMap.set('key2', 'val2');
+for (let key,val of sampleMap.entries()){
+  console.log(key + '---' + val);
+}
+``` 
+
 # 弱映射  
 
