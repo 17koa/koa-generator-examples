@@ -20,7 +20,8 @@ console.log(sampleSet);//will ouput Set {1,2,3,4,5,6}
 var sampleSet = new Set();
 sampleSet.add(2);
 sampleSet.add('2');
-console.log(sampleSet.size);
+console.log(sampleSet.size); //will output 2
+console.log(sampleSet);
 ```
 # 弱集合  
 # 映射  
