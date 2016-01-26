@@ -22,6 +22,13 @@ sampleSet.add(2);
 sampleSet.add('2');
 console.log(sampleSet.size); //will output 2
 console.log(sampleSet); //will output Set { 2, '2' }
+
+//例子2
+var sampleSet = new Set();
+//这个例子说明NaN对于集合来说是完全一样的
+sampleSet.add(NaN);
+sampleSet.add(NaN);
+console.log(sampleSet); //will output Set { NaN }
 ```  
 从上面程序的输出，可以看出  
 * 集合可以保存不同类型的数据
@@ -47,13 +54,6 @@ var a1 = {};
 sampleSet.add(a);
 sampleSet.add(a1);
 console.log(sampleSet); //will output Set Set { {}, {} }
-
-//例子3
-var sampleSet = new Set();
-//这个例子说明NaN对于集合来说是完全一样的
-sampleSet.add(NaN);
-sampleSet.add(NaN);
-console.log(sampleSet); //will output Set { NaN }
 ```
 # 弱集合  
 # 映射  
