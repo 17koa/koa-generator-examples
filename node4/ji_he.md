@@ -55,4 +55,10 @@ sampleSet.add(a);
 sampleSet.add(a1);
 console.log(sampleSet); //will output Set Set { {}, {} }
 ```
+
+## 集合的其他操作  
+除了向已经存在的集合添加内容，你还可以通过集合的成员函数实施下面的操作  
+* 删除内容，通过```delete(value)```来删除集合中的某个内容  
+* 判断集合是否包含内容，通过```has(value)```来判断集合中是否包含参数所指定的内容  
+* 清除所有内容，通过```clear()```你可以删除一个集合中的所有内容
 # 弱集合  
