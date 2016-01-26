@@ -21,8 +21,22 @@ console.log(sampleMap.size);//will output 2
 * 删除成员，通过```delete(key)```从映射对象删除成员
 * 测试是否包含，通过```has(key)```测试是否包含某个key
 * 获取成员，通过```get(key)```返回成员
-* 清空成员，通过```clear()```操作清空整个映射对象
+* 清空成员，通过```clear()```操作清空整个映射对象  
 
+另外，映射对象和集合对象一样，当你使用object作为key的时候，是根据key是否指向同样的内存对象来判断是否new一个key的。如果2个key的对象指向的是同一个内存对象，那么后面一个set将覆盖前面一个set的内容。  
+
+## 对映射对象的遍历  
+对映射对象，你可以使用下面的任意一种方法进行合适的遍历。  
+* ```keys()```调用，```keys()```调用将放回映射对象key的集合，接着你就可以使用```for...of```循环遍历了。  
+```javascript   
+'use strict';
+var sampleMap = new Map();
+sampleMap.put('key1', 'val1');
+sampleMap.put('key2', 'val2');
+for (let key of sampleMap.keys()){
+  console.log(key + '---' + sampleMap.get(key));
+}
+```
 
 # 弱映射  
 
