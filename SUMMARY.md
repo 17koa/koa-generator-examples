@@ -1,10 +1,12 @@
 # Summary
 
+* [Introduction](README.md)
 * [Nodejs 4.x新特性](node4/README.md)
    * [classes](node4/classes.md)
    * [typed arrays](node4/typed_arrays.md)
    * [generators](node4/generators.md)
    * [collections](node4/collections.md)
+       * 集合
    * [arrow functions](node4/arrow_functions.md)
    * [block scoping](node4/block_scoping.md)
    * [template strings](node4/template_strings.md)
