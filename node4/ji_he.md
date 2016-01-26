@@ -80,6 +80,6 @@ for (let val of sampleSet.values()){
 遍历集合的第二个方法是条用```forEach```函数完成，下面是具体的例子  
 ```javascript
 var sampleSet = new Set([1,2,3,4,5]);
-sampleSet.forEach((value, key) -> {console.log(value);});
+sampleSet.forEach((value, key) => {console.log(value);});
 ```
 # 弱集合  
