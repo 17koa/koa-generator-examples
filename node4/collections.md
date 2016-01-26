@@ -13,6 +13,15 @@ var sampleSet = new Set([1,2,3,4,5,5,6]);
 console.log(sampleSet.size);//will output 6
 console.log(sampleSet);//will ouput Set {1,2,3,4,5,6}
 ```
+
+## 向集合添加内容  
+可以通过使用集合对象的add方法向已经创建的集合添加新的内容  
+```javascript
+var sampleSet = new Set();
+sampleSet.add(2);
+sampleSet.add('2');
+console.log(sampleSet.size);
+```
 # 弱集合  
 # 映射  
 # 弱映射  
