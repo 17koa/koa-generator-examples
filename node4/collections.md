@@ -43,10 +43,16 @@ console.log(sampleSet); //will output Set { {} }
 var sampleSet = new Set();
 var a = {};
 var a1 = {};
-//因为a和a1在底层指向的是同一个内存对象，所以a === a1
+//因为a和a1在底层指向的是不同的内存对象，所以a != a1
 sampleSet.add(a);
 sampleSet.add(a1);
 console.log(sampleSet); //will output Set Set { {}, {} }
+
+//例子3
+var sampleSet = new Set();
+sampleSet.add(NaN);
+sampleSet.add(NaN);
+console.log(sampleSet); //will output Set { NaN }
 ```
 # 弱集合  
 # 映射  
