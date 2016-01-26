@@ -4,10 +4,14 @@
 集合对象是通过构造函数进行初始化的，调用格式有2种  
 * 不传参数给构造函数，这将创建一个空的集合对象  
 ```javascript 
-var sampleSet = new Set()
-console.log(sampleSet.size) //will output 0
+var sampleSet = new Set();
+console.log(sampleSet.size); //will output 0
 ```
 * 传递一个数组对象给构造函数，将创建一个包含这个数组中不重复内容的集合  
+```javascript 
+var sampleSet = new Set([1,2,3,4,5,5,6]);
+console.log(sampleSet.size);//will output 6
+```
 # 弱集合  
 # 映射  
 # 弱映射  
