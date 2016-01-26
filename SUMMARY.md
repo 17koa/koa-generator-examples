@@ -7,7 +7,7 @@
    * [generators](node4/generators.md)
    * [collections](node4/collections.md)
        * [Set](node4/ji_he.md)
-       * Map
+       * [Map](node4/map.md)
    * [arrow functions](node4/arrow_functions.md)
    * [block scoping](node4/block_scoping.md)
    * [template strings](node4/template_strings.md)
