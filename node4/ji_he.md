@@ -65,6 +65,7 @@ console.log(sampleSet); //will output Set Set { {}, {} }
 ## 集合对象的遍历  
 遍历集合对象最简单的方法就是遍历```values()```方法的返回值，下面是一个具体的例子  
 ```javascript  
+'use strict';
 var sampleSet = new Set([1,2,3,4,5]);
 //output is
 //1
