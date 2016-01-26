@@ -11,6 +11,7 @@ console.log(sampleSet.size); //will output 0
 ```javascript 
 var sampleSet = new Set([1,2,3,4,5,5,6]);
 console.log(sampleSet.size);//will output 6
+console.log(sampleSet);//will ouput [1,2,3,4,5,6]
 ```
 # 弱集合  
 # 映射  
