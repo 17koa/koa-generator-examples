@@ -60,5 +60,16 @@ for (let item of sampleMap.entries()){
 }
 ``` 
 
+*```forEach()```调用  
+```javascript  
+'use strict';
+var sampleMap = new Map();
+sampleMap.set('key1', 'val1');
+sampleMap.set('key2', 'val2');
+sampleMap.forEach(function(value, key, map){
+  console.log("Key: %s, Value: %s", key, value);
+};
+```
+
 # 弱映射  
 
