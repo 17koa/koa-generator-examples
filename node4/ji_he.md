@@ -77,9 +77,16 @@ for (let val of sampleSet.values()){
   console.log(val);
 }
 ```
-遍历集合的第二个方法是条用```forEach```函数完成，下面是具体的例子  
+遍历集合的第二个方法是条用```forEach```函数完成，下面是具体的例子。对于这个例子，大家一定很奇怪，为什么forEach接受的函数的参数是2个。对于这点我一开始也觉得很奇怪，在看了相关的文档才明白，实际上对于集合中的每个元素，都有2个属性与之绑定（Key和value)，只不过他们完全相同而已，我个人估计是为了和映射对象保持类似的结构，从而简化Javascript引擎而这么做的。  
 ```javascript
 var sampleSet = new Set([1,2,3,4,5]);
+//output is
+//1
+//2
+//3
+//4
+//5
+//实际上你用console.log(key)也会得到完全一样的结果
 sampleSet.forEach((value, key) => {console.log(value);});
 ```
 # 弱集合  
