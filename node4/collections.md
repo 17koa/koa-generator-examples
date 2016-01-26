@@ -28,7 +28,26 @@ console.log(sampleSet); //will output Set { 2, '2' }
 * 在向集合添加数据的时候，JavaScript并不进行数据转化。因此2和'2'是不一样的
 
 ## 向集合添加对象  
-我们之所以将向集合添加对象单独出来解释，是因为对对象是否相同的判断和普通对象不一样。下面是几个例子。
+我们之所以将向集合添加对象单独出来解释，是因为对对象是否相同的判断和普通对象不一样。下面是几个例子。  
+```javascript  
+//例子1
+var sampleSet = new Set();
+var a = {};
+var a1 = a;
+//因为a和a1在底层指向的是同一个内存对象，所以a === a1
+sampleSet.add(a);
+sampleSet.add(a1);
+console.log(sampleSet); //will output Set { {} }
+
+//例子2
+var sampleSet = new Set();
+var a = {};
+var a1 = {};
+//因为a和a1在底层指向的是同一个内存对象，所以a === a1
+sampleSet.add(a);
+sampleSet.add(a1);
+console.log(sampleSet); //will output Set Set { {}, {} }
+```
 # 弱集合  
 # 映射  
 # 弱映射  
