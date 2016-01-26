@@ -4,7 +4,8 @@
 在ES6中，可以通过如下2种对构造函数的调用来创建并初始化一个映射对象  
 * 不传参数给构造函数，这将创建一个空的映射  
 ```javascript  
-
+var sampleMap = new Map();
+console.log(sampleMap.size); //will output 0
 ```
 * 传一个数组给构造函数，这个传入的数组的每个元素包含2个值，第一个将作为key, 另外一个作为value
 
