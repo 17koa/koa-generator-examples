@@ -55,8 +55,8 @@ for (let val of sampleMap.values()){
 var sampleMap = new Map();
 sampleMap.set('key1', 'val1');
 sampleMap.set('key2', 'val2');
-for (let key,val of sampleMap.entries()){
-  console.log(key + '---' + val);
+for (let item of sampleMap.entries()){
+  console.log(item[0] + '---' + item[1]);
 }
 ``` 
 
