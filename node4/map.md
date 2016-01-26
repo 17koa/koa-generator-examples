@@ -67,7 +67,7 @@ var sampleMap = new Map();
 sampleMap.set('key1', 'val1');
 sampleMap.set('key2', 'val2');
 sampleMap.forEach(function(value, key, map){
-  console.log("Key: %s, Value: %s", key, value);
+  console.log(key + '---' + value);
 });
 ```
 
