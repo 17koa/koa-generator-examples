@@ -21,7 +21,7 @@ var sampleSet = new Set();
 sampleSet.add(2);
 sampleSet.add('2');
 console.log(sampleSet.size); //will output 2
-console.log(sampleSet);
+console.log(sampleSet); //will output Set { 2, '2' }
 ```
 # 弱集合  
 # 映射  
