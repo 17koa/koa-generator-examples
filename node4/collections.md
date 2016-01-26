@@ -25,14 +25,14 @@ console.log(sampleSet); //will output Set { 2, '2' }
 
 //例子2
 var sampleSet = new Set();
-//这个例子说明NaN对于集合来说是完全一样的
 sampleSet.add(NaN);
 sampleSet.add(NaN);
 console.log(sampleSet); //will output Set { NaN }
 ```  
 从上面程序的输出，可以看出  
 * 集合可以保存不同类型的数据
-* 在向集合添加数据的时候，JavaScript并不进行数据转化。因此2和'2'是不一样的
+* 在向集合添加数据的时候，JavaScript并不进行数据转化。因此2和'2'是不一样的  
+* 对集合对象来说，所有的NaN都是一样的
 
 ## 向集合添加对象  
 我们之所以将向集合添加对象单独出来解释，是因为对对象是否相同的判断和普通对象不一样。下面是几个例子。  
