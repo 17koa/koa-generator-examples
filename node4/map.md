@@ -31,8 +31,8 @@ console.log(sampleMap.size);//will output 2
 ```javascript   
 'use strict';
 var sampleMap = new Map();
-sampleMap.put('key1', 'val1');
-sampleMap.put('key2', 'val2');
+sampleMap.set('key1', 'val1');
+sampleMap.set('key2', 'val2');
 for (let key of sampleMap.keys()){
   console.log(key + '---' + sampleMap.get(key));
 }
