@@ -27,7 +27,7 @@ console.log(sampleMap.size);//will output 2
 
 ## 对映射对象的遍历  
 对映射对象，你可以使用下面的任意一种方法进行合适的遍历。  
-* ```keys()```调用，```keys()```调用将放回映射对象key的集合，接着你就可以使用```for...of```循环遍历了。  
+* ```keys()```调用，```keys()```调用将返回映射对象key的集合，接着你就可以使用```for...of```循环遍历了。  
 ```javascript   
 'use strict';
 var sampleMap = new Map();
@@ -36,7 +36,18 @@ sampleMap.set('key2', 'val2');
 for (let key of sampleMap.keys()){
   console.log(key + '---' + sampleMap.get(key));
 }
-```
+``` 
+
+* ```values()```调用，```values()```调用返回映射对象value的集合，接着你就可以使用```for...of```循环遍历了。  
+```javascript   
+'use strict';
+var sampleMap = new Map();
+sampleMap.set('key1', 'val1');
+sampleMap.set('key2', 'val2');
+for (let val of sampleMap.values()){
+  console.log(val);
+}
+``` 
 
 # 弱映射  
 
