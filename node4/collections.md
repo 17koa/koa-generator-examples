@@ -50,6 +50,7 @@ console.log(sampleSet); //will output Set Set { {}, {} }
 
 //例子3
 var sampleSet = new Set();
+//这个例子说明NaN对于集合来说是完全一样的
 sampleSet.add(NaN);
 sampleSet.add(NaN);
 console.log(sampleSet); //will output Set { NaN }
