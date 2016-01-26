@@ -14,6 +14,7 @@ var sampleMap = new Map([['key1', 'val1'], ['key2', 'val2']]);
 //will output 2, also sampleMap will have key key1 and key2
 console.log(sampleMap.size);//will output 2
 ```
+
 ## 对映射对象的操作  
 和集合对象类似，你可以对映射对象执行如下的操作  
 
