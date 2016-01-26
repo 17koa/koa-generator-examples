@@ -7,7 +7,12 @@
 var sampleMap = new Map();
 console.log(sampleMap.size); //will output 0
 ```
-* 传一个数组给构造函数，这个传入的数组的每个元素包含2个值，第一个将作为key, 另外一个作为value
+* 传一个数组给构造函数，这个传入的数组的每个元素包含2个值，第一个将作为key, 另外一个作为value  
+```javascript  
+var sampleMap = new Map([['key1', 'val1'], ['key2', 'val2']]);
+//will output 2, also sampleMap will have key key1 and key2
+console.log(sampleMap.size);//will output 2
+```
 
 # 弱映射  
 
