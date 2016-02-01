@@ -25,3 +25,26 @@ var promiseObj = new Promise(function(resolve, reject){
 });
 ```
 
+关联resolve function和reject function 
+--------------------------------------------------------------------------------
+
+在上面的例子中，如果你执行这个代码，你会发现没有任何的效果（没有输出），那是因为你没有给这个创建的Promise对象关联相应的resolve和reject函数。下面是一个进一步的例子，这个例子将给Promise对象绑定resolve和reject函数，你就可以看到效果了。
+
+```javascript
+var fs = require("fs");
+var promiseObj = new Promise(function(resolve, reject){
+    //put some code to call
+    fs.readFile("temp.txt", (err, data) => {
+        if (err){
+            reject(err);
+        }else{
+            resolved(data);
+        }
+    });
+});
+promiseObj.then(function(data){
+    console.log("file read succ");
+}, function(err){
+    console.log("file read fail");
+})
+```
