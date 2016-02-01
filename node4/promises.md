@@ -99,3 +99,20 @@ p2.then(function(data){
    console.log("p2 fail");
 });
 ```
+
+## Promise的特殊函数  
+
+Promise.all()
+--------------------------------------------------------------------------------
+
+将多个Promise包装成一个全新的Promise Object，如果所有的Promise被Resolved，那么新的Promise将被Resolve；否则新的Promise将被Reject。
+
+Promise.race()
+--------------------------------------------------------------------------------
+
+和.all一样，.race将把多个Promise包装成一个新的Promise Object，不同的地方是。这些Promise之中任何一个Resolve或者Reject了，新的Promise就被Resolve或者Reject了。
+
+Promise.resolve()
+--------------------------------------------------------------------------------
+
+将传入的对象封装成一个Promise对象返回。
