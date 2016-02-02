@@ -115,4 +115,35 @@ Promise.race()
 Promise.resolve()
 --------------------------------------------------------------------------------
 
-将传入的对象封装成一个Promise对象返回。
+将传入的对象封装成一个Promise对象返回。resolve方法根据以下的规则返回Promise对象。
+
+* 如果输入的参数本身是一个Promise对象，那么resolve方法直接返回这个对象；
+* 如果输入的对象本身有then方法（必须是一个可以接受2个function的方法），那么resolve将这个对象转换成Promise对象，并理解调用then方法；下面是一个例子
+ 
+```javascript
+//for this example, you will see following output
+//   then function in thenobject
+//   Promise object resolve function is called Then function is called
+var thenobject = {
+    then: function(resolve, reject){
+       console.log("then function in thenobject");
+       resolve("Then function is called");
+    }
+};
+
+var pObj = Promise.resolve(thenobject);
+pObj.then(function(data){
+    console.log("Promise object resolve function is called " + data);
+});
+```
+
+* 如果传入的参数就是一个普通对象，那么返回的Promise对象直接处于resolved状态，并且输入的参数将作为resolved状态下调用的函数的参数。下面是一个具体的例子。
+
+```javascript
+//for this example, you will see following output
+//   Promise object resolve function is called Hello World!
+var pObj = Promise.resolve("Hello World!");
+pObj.then(function(data){
+    console.log("Promise object resolve function is called " + data);
+});
+```
