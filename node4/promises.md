@@ -147,3 +147,5 @@ pObj.then(function(data){
     console.log("Promise object resolve function is called " + data);
 });
 ```
+
+*如果没有输入参数，那么返回的Promise对象直接处于resolved状态，并且resolved状态下调用的函数没有输入参数。
