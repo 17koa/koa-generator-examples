@@ -2,9 +2,7 @@
 
 在Promise出现之前，如果大家需要实现异步操作，通用的做法是事件加上回调函数，如果我们有多个异步操作需要嵌套执行的话，那么代码将变得非常难于阅读。让我们来看一个具体的代码例子。在下面的例子中，我们首先通过Http request调用一个web service，然后将从web service。从任务的角度来看，这是一个非常简单的任务，但是当你第一次看到这个代码的时候，一定觉得头很晕，因为在这段代码中
 
-* 充斥着大量的匿名回调函数。
-* 对于同web service（ `data`事件的回调函数和`end`事件的回调函数都对web server返回的数据进行了处理 ）
-* 对web service进行调用的代码和写文件的代码混杂在一起（写文件的代码嵌套在`end`事件的回调函数中
+* 对web service进行调用的代码和写文件的代码混杂在一起（写文件的代码嵌套在`end`事件的回调函数中），造成代码模块不清晰，理解起来比较费劲。
 * 到处都是对于错误的处理函数，而且处理方式还不统一。对web service进行调用的代码，通过监听`error`事件来处理错误，而写文件的代码，是通过检查回调函数中的`err`参数来处理错误
 
 ```javascript
@@ -63,6 +61,67 @@ req.end();
 接下来，让我们使用Promise重写上面的代码。
 
 ```javascript
+'use strict';
+var http = require("http");
+var fs = require("fs");
+var querystring = require("querystring");
+var postData = querystring.stringify({
+  'msg' : 'Hello World!'
+});
+
+var options = {
+  hostname: '127.0.0.1',
+  port: 8080,
+  path: '/upload',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Length': postData.length
+  }
+};
+
+var pHttpRequest = new Promise(function(resolve, reject){
+	let req = http.request(options, (res) => {
+	  console.log(`STATUS: ${res.statusCode}`);
+	  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+	  res.setEncoding('utf8');
+	  
+	  let dataReceived = ""
+	  
+	  res.on('data', (chunk) => {
+		dataReceived = dataReceived + chunk.toString();
+	  });
+	  
+	  res.on('end', () => {
+		resolve(dataReceived);
+	  })
+	});
+	
+	req.on('error', function(e){
+		reject(e);
+	});
+	
+	req.write(postData);
+	req.end();	
+})
+
+pHttpRequest.then(
+	function(dataReceived){
+		return new Promise(function(resolve, reject){
+			fs.writeFile("temp.txt", dataReceived, function(e){
+				if (e) reject(e);
+				else resolve("Write file succ");
+			});
+		})
+	}
+).then(
+	function(msg){
+		console.log(msg);
+	}
+).catch(
+	function(err){
+	}
+)
 ```
 
 ## Promise对象的特性 
