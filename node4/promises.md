@@ -6,7 +6,7 @@
 
 * Promise对象一旦创建，就开始执行了，你没有办法取消Promise对象的执行。
 * Promise对象的状态只由异步操作的结果决定，没有任何其他的操作可以改变Promise对象的状态如果异步操作执行成功，Promise对象将进入Resolved状态，同时resolve函数将被调用；如果异步操作执行失败，Promise对象将进入Rejected状态，同时reject函数将被调用。
-* Promise对象一旦进入Resolved或者Rejected状态，状态将不可能再发生变化。
+* Promise对象一旦进入Resolved或者Rejected状态，状态将不可能再发生变化，在Promise对象被销毁之前，将一直保持Resolved或者Rejected状态。
 * 因为Promise对象的实现方法，在异步操作过程中出现的异常是不会被抛出的，因此需要在Promise对象内部进行处理。
  
 下图表示了一个Promise对象的整个生命周期。
