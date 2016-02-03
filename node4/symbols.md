@@ -7,8 +7,8 @@ var s1 = Symbol();
 # 为创建的Symbol对象指定一个名称
 var s2 = Symbol("test");
 # 使用这种方法，每次创建出来的Symbol对象都是不一样的
-# console.log(s2, s3)将返回false
 var s3 = Symbol("test");
+# console.log(s2 == s3)将返回false
 
 # 第二种方法，使用Symbol.for方法来创建Symbol实例
 # 使用Symbol.for方法来创建一个Symbol实例的时候，
