@@ -1,6 +1,60 @@
 ## Promise的历史  
 
-如果大家以前使用JavaScript写过异步操作的代码，一定对回调函数记忆深刻。如果你需要嵌套多个异步操作的话，回调函数将会是长长的一串，整个代码将变得非常难于阅读。因此，在ES5的年代，Promise对象营运而生。通过使用Promise对象，对不同异步操作的等待，变成了一个函数调用链表，给代码可读性带来了非常大的提高。不过在ES5年代，你需要使用第三方的库来引入Promise支持，在ES6中，Promise变成了内置的对象，你可以直接使用了。
+在Promise出现之前，如果大家需要实现异步操作，通用的做法是事件加上回调函数，如果我们有多个异步操作需要嵌套执行的话，那么代码将变得非常难于阅读。让我们来看一个具体的代码例子。在下面的例子中，我们首先通过Http request调用一个web server，然后将从web server返回的信息写入一个本地文件。
+
+```javascript
+var http = require("http");
+var fs = require("fs");
+var querystring = require("querystring");
+var postData = querystring.stringify({
+  'msg' : 'Hello World!'
+});
+
+var options = {
+  hostname: '127.0.0.1',
+  port: 8080,
+  path: '/upload',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Length': postData.length
+  }
+};
+
+var req = http.request(options, (res) => {
+  console.log(`STATUS: ${res.statusCode}`);
+  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+  res.setEncoding('utf8');
+  
+  var dataReceived = ""
+  
+  res.on('data', (chunk) => {
+	dataReceived = dataReceived + chunk.toString();
+    console.log(`BODY: ${chunk}`);
+  });
+  
+  res.on('end', () => {
+    console.log('No more data in response.')
+	//now we try to write the message to a file
+	fs.writeFile("temp.txt", dataReceived, function(err){
+		if (err){
+			console.log("Write file temp.txt fail(" + err + ")");
+			throw err;
+		}
+		console.log("Write file temp.txt succ");
+	});
+  })
+});
+
+req.on('error', (e) => {
+  console.log(`problem with request: ${e.message}`);
+});
+
+// write data to request body
+req.write(postData);
+req.end();
+```
+假设我们有一个web service，我们现在如果大家以前使用JavaScript写过异步操作的代码，一定对回调函数记忆深刻。如果你需要嵌套多个异步操作的话，回调函数将会是长长的一串，整个代码将变得非常难于阅读。因此，在ES5的年代，Promise对象营运而生。通过使用Promise对象，对不同异步操作的等待，变成了一个函数调用链表，给代码可读性带来了非常大的提高。不过在ES5年代，你需要使用第三方的库来引入Promise支持，在ES6中，Promise变成了内置的对象，你可以直接使用了。
 
 ## Promise对象的特性 
 
