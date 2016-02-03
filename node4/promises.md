@@ -1,9 +1,9 @@
 ## Promise的历史  
 
-在Promise出现之前，如果大家需要实现异步操作，通用的做法是事件加上回调函数，如果我们有多个异步操作需要嵌套执行的话，那么代码将变得非常难于阅读。让我们来看一个具体的代码例子。在下面的例子中，我们首先通过Http request调用一个web service，然后将从web service。从任务的角度来看，这是一个非常简单的任务，但是当你第一次看到这个代码的时候，一定觉得头很晕，因为在这段代码中
+在Promise出现之前，如果大家需要实现异步操作，通用的做法是事件加上回调函数，如果我们有多个异步操作需要嵌套执行的话，那么代码将变得非常难于阅读。让我们来看一个具体的代码例子。在下面的例子中，我们首先通过Http request调用一个web service，然后将从web service收到的数据写入一个本地文件。从任务的角度来看，这是一个非常简单的任务，但是当你第一次看到这个代码的时候，一定觉得头很晕，因为在这段代码中
 
-* 对web service进行调用的代码和写文件的代码混杂在一起（写文件的代码嵌套在`end`事件的回调函数中），造成代码模块不清晰，理解起来比较费劲。
-* 到处都是对于错误的处理函数，而且处理方式还不统一。对web service进行调用的代码，通过监听`error`事件来处理错误，而写文件的代码，是通过检查回调函数中的`err`参数来处理错误
+* 对web service进行调用的代码和写文件的代码混杂在一起（写文件的代码嵌套在`end`事件的回调函数中），造成代码模块不清晰，阅读和理解起来比较费劲。
+* 对错误的处理分散在代码的各个地方，而且错误处理的实现方式都不一样。对web service进行调用的代码，通过监听`error`事件来处理错误，并且将错误输出到控制套；而写文件的代码，是通过回调函数来处理错误，并将错误通过`throw`语句抛出。
 
 ```javascript
 var http = require("http");
@@ -41,7 +41,6 @@ var req = http.request(options, (res) => {
 	//now we try to write the message to a file
 	fs.writeFile("temp.txt", dataReceived, function(err){
 		if (err){
-			console.log("Write file temp.txt fail(" + err + ")");
 			throw err;
 		}
 		console.log("Write file temp.txt succ");
@@ -60,7 +59,10 @@ req.end();
 
 接下来，让我们使用Promise重写上面的代码。在重写的代码中，我们可以看到：
 
-* 对web service进行调用的代码和写文件的代码完全分离开了。
+* 对web service进行调用的代码和写文件的代码完全分离开了，代码结构变得非常清晰。在阅读代码的过程中，不会再被不相关的代码所干扰。
+* Promise对象对外提供了统一的回调函数接口（resolve和reject回调函数 ），在重写的代码中，我们可以很容易的把对web service的请求分装到一个模块中，从而对外隐藏Http Request的所有细节。
+* 通过Promise对象的封装，对错误代码的处理被统一了，都是通过对`reject`函数调用来说明异步操作过程中有错误发生，而且错误被集中到`.catch`代码段进行了处理（错误都被输出到了控制台）。
+* 通过Promise的封装，异步操作的代码变得和同步操作代码很像，更方便其他人理解代码的处理逻辑。
 
 ```javascript
 'use strict';
@@ -108,6 +110,8 @@ var pHttpRequest = new Promise(function(resolve, reject){
 })
 
 pHttpRequest.then(
+    //http request promise成功时候的处理
+    //在http request promise成功的时候，开始处理写文件操作
 	function(dataReceived){
 		return new Promise(function(resolve, reject){
 			fs.writeFile("temp.txt", dataReceived, function(e){
@@ -117,25 +121,30 @@ pHttpRequest.then(
 		})
 	}
 ).then(
+    //writeFile promise成功时候的处理
 	function(msg){
 		console.log(msg);
 	}
 ).catch(
+    //全局错误处理
 	function(err){
+	   console.log("some error happen(" + err + ")");
 	}
 )
 ```
+
+正式基于Promise对象有上面所说的这些优点，ES6正式将Promise对象编程了系统的一个内置对象，大家再也不用通过第三方库开始用Promise对象了。
 
 ## Promise对象的特性 
 
 * Promise对象一旦创建，就开始执行了，你没有办法取消Promise对象的执行。
 * Promise对象的状态只由异步操作的结果决定，没有任何其他的操作可以改变Promise对象的状态如果异步操作执行成功，Promise对象将进入Resolved状态，同时resolve函数将被调用；如果异步操作执行失败，Promise对象将进入Rejected状态，同时reject函数将被调用。
 * Promise对象一旦进入Resolved或者Rejected状态，状态将不可能再发生变化，在Promise对象被销毁之前，将一直保持Resolved或者Rejected状态。
-* 因为Promise对象的实现方法，在异步操作过程中出现的异常是不会被抛出的，因此需要在Promise对象内部进行处理。
+* 因为Promise对象的实现方法，在异步操作过程中出现的异常是不会被抛出的，因此需要在Promise对象内部进行处理（通过提供`.catch`代码段来实现）。
  
 下图表示了一个Promise对象的整个生命周期。
 
-![](Promise_State1.png)
+![](promise_state1.png)
 
 ## Promise对象的使用  
 
