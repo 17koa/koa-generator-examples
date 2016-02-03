@@ -10,7 +10,7 @@
  
 下图表示了一个Promise对象的整个生命周期。
 
-[](https://docs.google.com/a/neulion.com/drawings/d/1Q3Z2fYRwEqu4f-bX1LhY9BGHe3Pb0V73LZyo-SoIIsY/pub?w=480&h=360)
+
 
 ## Promise对象的使用  
 
