@@ -58,7 +58,9 @@ req.write(postData);
 req.end();
 ```
 
-接下来，让我们使用Promise重写上面的代码。
+接下来，让我们使用Promise重写上面的代码。在重写的代码中，我们可以看到：
+
+* 对web service进行调用的代码和写文件的代码完全分离开了。
 
 ```javascript
 'use strict';
