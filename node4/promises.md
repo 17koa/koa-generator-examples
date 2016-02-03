@@ -7,6 +7,10 @@
 * Promise对象一旦创建，就开始执行了，你没有办法取消Promise对象的执行。
 * Promise对象执行的结果只能是2种。如果异步操作执行成功，那么resolve函数将被调用；如果异步操作执行失败，那么reject函数将被调用。
 * 因为Promise对象的实现方法，在异步操作过程中出现的异常是不会被抛出的，因此需要在Promise对象内部进行处理。
+ 
+下图表示了一个Promise对象的整个生命周期。
+
+[](https://docs.google.com/a/neulion.com/drawings/d/1Q3Z2fYRwEqu4f-bX1LhY9BGHe3Pb0V73LZyo-SoIIsY/pub?w=480&h=360)
 
 ## Promise对象的使用  
 
