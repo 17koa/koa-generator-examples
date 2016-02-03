@@ -144,7 +144,7 @@ pHttpRequest.then(
  
 下图表示了一个Promise对象的整个生命周期。
 
-![](promise_state1.png)
+![](promise_lifecycle.png)
 
 ## Promise对象的使用  
 
