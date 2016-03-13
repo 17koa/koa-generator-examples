@@ -1,15 +1,16 @@
-'use strict';
+'use strict'
 
-const mongoose = require('mongoose');
-const co = require('co');
-const tool = require('../common/tool');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const co = require('co')
+const tool = require('../common/tool')
+const Schema = mongoose.Schema
 
 const schema = new Schema({
   email: {
     type: String,
     unique: true
   },
+  name: String,
   nick: String,
   password: String,
   role: {
@@ -20,48 +21,52 @@ const schema = new Schema({
     type: Date,
     default: Date.now()
   }
-});
+})
 
-schema.pre('save', function(next) {
+schema.pre('save', function (next) {
   if (!this.isModified('password')) {
-    next();
+    next()
   }
-  co.wrap(function*() {
-    let pwdHash = yield tool.bhash(this.password, 10);
-    this.password = pwdHash;
-  }).call(this).then(next).catch(next);
-});
+  co.wrap(function * () {
+    let pwdHash = yield tool.bhash(this.password, 10)
+    this.password = pwdHash
+  }).call(this).then(next).catch(next)
+})
 
 schema.methods = {
-  comparePassword: function(pwd) {
-    return tool.bcompare(pwd, this.password);
+  comparePassword: function (pwd) {
+    return tool.bcompare(pwd, this.password)
   }
-};
+}
 
 schema.statics = {
-  login: function* (email, pwd) {
+  findByLogin: function * (email, pwd) {
     let user = yield this.findOne({
       email: email
-    }).exec();
+    }).exec()
     if (!user) {
-      throw new Error('user no found');
+      throw new Error('user no found')
     }
     if (!(yield user.comparePassword(pwd))) {
-      throw new Error('password does not match');
+      throw new Error('password does not match')
     }
-    user = user.toJSON();
-    delete user.password;
-    return user;
+    user = user.toJSON()
+    delete user.password
+    return user
   },
 
-  findAll: function() {
-    return this.find().exec();
+  findAll: function () {
+    return this.find().exec()
   },
 
-  findProfile: function(id) {
-    return this.findOne({_id: id}).select('-password').exec();
+  findProfile: function (id) {
+    return this.findOne({_id: id}).select('-password').exec()
+  },
+
+  updateByIdAndReturnNewDoc (id, doc) {
+    let options = { new: true, select: '-password' } //  true to return the modified document rather than the original. defaults to false
+    return this.findOneAndUpdate({ _id: id }, doc, options).exec()
   }
-};
+}
 
-module.exports = mongoose.model('User', schema);
-
+module.exports = mongoose.model('User', schema)
