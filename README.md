@@ -4,6 +4,8 @@ koa是下一代基于nodejs的modern web framework，会用到很多es高级特�
 
 鉴于目前学习资料不多，故有此书
 
+年前几天比较忙，更新暂缓
+
 ## 宗旨
 
 大家一起学习koa

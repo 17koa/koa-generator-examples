@@ -24,20 +24,30 @@ class Polygon{
 ```  
 ## 给class增加成员属性  
 在ES6中， 你可以通过getter和setter方法，给类增加属性。如果属性只有getter方法，那么它就是一个只读属性；如果属性同时又setter和getter方法，那么它就是一个可读写属性。请看下面的例子  
+**注意属性`name`和`_name`**  
+因为我们定义了 name 的读写器，而没有定义 _name 的读写器，所以访问这两个属性的结果是不同的。  
 ```javascript  
-class Polygon{
-    constructor(height, width){
-        this.height = height;
-        this.width = width;
+class Person{
+    constructor(name){
+        this._name = name;
     }
     get name(){
-        return this.name;
+        return this._name.toUpperCase();
     }
+    /**
+     * 注意一点，不要这样写:
+     * set name(somename) {
+     *  this.name = somename;
+     * }
+     * 因为给 this.name 赋值的时候会调用 set name ，这样会导致无限递归直到栈溢出。
+     *
+     */
     set name(somename){
-        this.name = somename;
+        this._name = somename;
     }
 }
-```
+```  
+
 ## 给class增加成员函数 
 这点没什么可说的，就是在类定义中增加函数定义即可，请看下面的例    
 ```javascript  
@@ -47,10 +57,10 @@ class Polygon{
         this.width = width;
     }
     get name(){
-        return this.name;
+        return this._name;
     }
     set name(somename){
-        this.name = somename;
+        this._name = somename;
     }
     
     //readonly property
@@ -64,7 +74,7 @@ class Polygon{
 }
 ```
 ## 实现class的继承  
-在ES6中，通过使用extends关键字，你可以使用累的继承  
+在ES6中，通过使用extends关键字，你可以使用类的继承  
 ```javascript  
 class Animal{
     constructor(name){
