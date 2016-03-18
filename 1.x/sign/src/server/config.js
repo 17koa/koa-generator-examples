@@ -1,17 +1,16 @@
-'use strict';
+'use strict'
 
-const path = require('path');
-
-const _ = require('lodash');
+const path = require('path')
+const _ = require('lodash')
 
 const baseConfig = {
   app: {
     name: 'Koa examples #mongoose',
-    root: path.normalize(__dirname + '/../..'),
+    root: path.normalize(path.join(__dirname, '/../..')),
     env: process.env.NODE_ENV,
-    secret: process.env.SECRET || 'my&&&&&&secret!',
+    secret: process.env.SECRET || 'my&&&&&&secret!'
   }
-};
+}
 
 const platformConfig = {
   development: {
@@ -40,7 +39,7 @@ const platformConfig = {
       url: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI
     }
   }
-};
-const base = baseConfig.app;
+}
+const base = baseConfig.app
 
-module.exports = _.merge(baseConfig, platformConfig[base.env ? base.env : base.env = 'development']);
+module.exports = _.merge(baseConfig, platformConfig[base.env ? base.env : base.env = 'development'])
