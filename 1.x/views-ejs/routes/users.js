@@ -1,7 +1,7 @@
 var router = require('koa-router')();
 
 router.get('/', function *(next) {
-  this.body = 'this a users response!';
+  this.body = "This is a user's response!";
 });
 
 module.exports = router;
