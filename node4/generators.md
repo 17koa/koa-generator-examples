@@ -11,7 +11,7 @@ function* helloworld(){
 func = helloworld();
 func.next();//return { value: 'Hello', done: false }
 func.next();//return { value: 'World!', done: true }
-func.next();//return { value: '', done: true }
+func.next();//return { value: undefined, done: true }
 ```  
 从上面的代码的输出可以看出
 * Generator函数的定义，是通过**function ***实现的
